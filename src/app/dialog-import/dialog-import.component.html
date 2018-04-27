@@ -1,0 +1,71 @@
+
+<h5>Import Local Data</h5>
+
+<mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+
+      <ng-template matStepLabel>Select your exchange platform</ng-template>
+
+      <mat-form-field>
+        <mat-select matInput placeholder="exchange platform" formControlName="platformSelected" required>
+          <mat-option value="Binance">Binance</mat-option>
+          <mat-option value="Bitfinex">Bitfinex</mat-option>
+          <mat-option value="Bittrex">Bittrex</mat-option>
+          <mat-option value="Poloniex">Poloniex</mat-option>
+          <mat-option value="Kraken">Kraken</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+
+      <ng-template matStepLabel>Select your pair</ng-template>
+
+      <mat-form-field>
+        <mat-select matInput placeholder="pair" formControlName="pairSelected" required>
+          <mat-option value="BTC/USD">BTC/USD</mat-option>
+          <mat-option value="BTC/EUR">BTC/EUR</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Select your local data Period</ng-template>
+      <mat-form-field>
+        <input matInput [matDatepickerFilter]="startDateFilter" [matDatepicker]="picker" placeholder="Choose a start date " formControlName="startDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" ></mat-datepicker>
+      </mat-form-field>
+      <div>To</div>
+      <mat-form-field>
+        <input matInput [matDatepickerFilter]="endDateFilter" [matDatepicker]="picker2" placeholder="Choose an end date" formControlName="endDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 startView="month"></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Import</ng-template>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="sendData()">Done</button>
+      <button mat-button (click)="dialogRef.close()">Cancel</button>
+
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
