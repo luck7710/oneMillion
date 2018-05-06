@@ -4,22 +4,24 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var book = require('./routes/Book');
+var chart = require('./routes/Chart');
 var app = express();
-
-
-
 var mongoose = require('mongoose');
+
+
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mean-angular5', {promiseLibrary: require('bluebird')})
-  .then(() => console.log(' MongoDB connection successful'))
+mongoose.connect('mongodb://localhost/oneMillion', { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('MongoDB connection succesful'))
   .catch((err) => console.error(err));
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended': 'false'}));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/books', express.static(path.join(__dirname, 'dist')));
 app.use('/book', book);
+app.use('/charts', express.static(path.join(__dirname, 'dist')));
+app.use('/chart', chart);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -38,5 +40,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

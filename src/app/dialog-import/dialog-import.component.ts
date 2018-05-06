@@ -36,8 +36,8 @@ export class DialogImportComponent implements OnInit {
     });
   }
 
-  public getTimestamp(event: Date): number {
-    return event.getTime();
+  public getTimestamp(event: Date): String {
+    return event.getTime().toFixed(6);
   }
 
   sendData(): void {
@@ -49,7 +49,7 @@ export class DialogImportComponent implements OnInit {
       this.dataToSend['pairSelected'] = 'XXBTZUSD';
     } else if (this.secondFormGroup.value.pairSelected === 'BTC/EUR') {
       this.dataToSend['pairSelected'] = 'XXBTZEUR';
-    } else{
+    } else {
     }
     this.dialogRef.close(this.dataToSend);
   }

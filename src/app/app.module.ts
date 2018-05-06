@@ -18,20 +18,30 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material';
 import {MatOptionModule} from '@angular/material';
 import {MatStepperModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 import {AppComponent} from './app.component';
 import {DialogImportComponent} from './dialog-import/dialog-import.component';
 import {BookComponent} from './book/book.component';
+import {ChartComponent} from './chart/chart.component';
 import {BookDetailComponent} from './book-detail/book-detail.component';
 import {BookCreateComponent} from './book-create/book-create.component';
 import {BookEditComponent} from './book-edit/book-edit.component';
+
 
 const appRoutes: Routes = [
   {
     path: 'books',
     component: BookComponent,
     data: {title: 'Book List'}
+  },
+  {
+    path: 'charts',
+    component: ChartComponent,
+    data: {title: 'Chart List'}
   },
   {
     path: 'book-details/:id',
@@ -50,7 +60,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/books',
+    redirectTo: '/charts',
     pathMatch: 'full'
   }
 ];
@@ -60,9 +70,10 @@ const appRoutes: Routes = [
     AppComponent,
     DialogImportComponent,
     BookComponent,
+    ChartComponent,
     BookDetailComponent,
     BookCreateComponent,
-    BookEditComponent
+    BookEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +91,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatOptionModule,
     MatStepperModule,
+    MatTableModule,
+    MatPaginatorModule,
     FormsModule,
     ReactiveFormsModule,
     ChartModule.forRoot(require('highcharts/highstock')),

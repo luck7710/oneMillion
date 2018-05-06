@@ -22,6 +22,7 @@ export class BookCreateComponent implements OnInit {
     this.http.post('/book', this.book)
       .subscribe(res => {
           const resId = res['_id'];
+          console.log(resId);
           this.router.navigate(['/book-details', resId]);
         }, (err) => {
           console.log(err);
