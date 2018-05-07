@@ -22,7 +22,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
-
 import {AppComponent} from './app.component';
 import {DialogImportComponent} from './dialog-import/dialog-import.component';
 import {BookComponent} from './book/book.component';
@@ -30,6 +29,13 @@ import {ChartComponent} from './chart/chart.component';
 import {BookDetailComponent} from './book-detail/book-detail.component';
 import {BookCreateComponent} from './book-create/book-create.component';
 import {BookEditComponent} from './book-edit/book-edit.component';
+import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
+import { ImportComponent } from './import/import.component';
+import { GraphicComponent } from './graphic/graphic.component';
+import {HttpService} from './service/http.service';
+import { TableComponent } from './table/table.component';
+
 
 
 const appRoutes: Routes = [
@@ -60,7 +66,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/charts',
+    redirectTo: '/',
     pathMatch: 'full'
   }
 ];
@@ -74,6 +80,11 @@ const appRoutes: Routes = [
     BookDetailComponent,
     BookCreateComponent,
     BookEditComponent,
+    MainComponent,
+    HeaderComponent,
+    ImportComponent,
+    GraphicComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +112,7 @@ const appRoutes: Routes = [
       {enableTracing: true} // <-- debugging purposes only
     )],
   entryComponents: [DialogImportComponent],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

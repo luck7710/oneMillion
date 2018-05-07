@@ -1,4 +1,6 @@
-export class Table {
+import {TableData} from './TableData';
+
+export class Table implements TableData {
   platform: String;
   pair: String;
   startDate: Number;
