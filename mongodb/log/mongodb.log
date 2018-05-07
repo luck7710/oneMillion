@@ -196,3 +196,14 @@
 2018-05-07T09:36:31.850-0400 I -        [conn14] end connection 127.0.0.1:58118 (1 connection now open)
 2018-05-07T09:37:38.153-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:35788 #15 (1 connection now open)
 2018-05-07T09:37:38.301-0400 I NETWORK  [conn15] received client metadata from 127.0.0.1:35788 conn15: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-39-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-07T09:45:54.152-0400 I CONTROL  [signalProcessingThread] got signal 2 (Interrupt), will terminate after current cmd ends
+2018-05-07T09:45:54.223-0400 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2018-05-07T09:45:54.230-0400 I NETWORK  [signalProcessingThread] closing listening socket: 7
+2018-05-07T09:45:54.240-0400 I NETWORK  [signalProcessingThread] closing listening socket: 8
+2018-05-07T09:45:54.245-0400 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2018-05-07T09:45:54.246-0400 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2018-05-07T09:45:54.283-0400 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2018-05-07T09:45:54.480-0400 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2018-05-07T09:45:54.800-0400 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2018-05-07T09:45:54.806-0400 I CONTROL  [signalProcessingThread] now exiting
+2018-05-07T09:45:54.807-0400 I CONTROL  [signalProcessingThread] shutting down with code:0
