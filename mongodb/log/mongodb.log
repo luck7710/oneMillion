@@ -207,3 +207,341 @@
 2018-05-07T09:45:54.800-0400 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
 2018-05-07T09:45:54.806-0400 I CONTROL  [signalProcessingThread] now exiting
 2018-05-07T09:45:54.807-0400 I CONTROL  [signalProcessingThread] shutting down with code:0
+2018-05-11T19:49:20.898+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-11T19:49:22.084+0200 I CONTROL  [initandlisten] MongoDB starting : pid=8136 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-05-11T19:49:22.085+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-05-11T19:49:22.085+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-05-11T19:49:22.085+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-05-11T19:49:22.085+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-05-11T19:49:22.085+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-11T19:49:22.086+0200 I CONTROL  [initandlisten] modules: none
+2018-05-11T19:49:22.086+0200 I CONTROL  [initandlisten] build environment:
+2018-05-11T19:49:22.086+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-05-11T19:49:22.086+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-11T19:49:22.086+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-11T19:49:22.090+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-05-11T19:49:22.118+0200 I -        [initandlisten] Detected data files in C:\Users\luck7\Desktop\oneMillion\mongodb\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-05-11T19:49:22.119+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-05-11T19:49:22.224+0200 E STORAGE  [initandlisten] WiredTiger error (0) [1526060962:223646][8136:140734266564944], file:WiredTiger.wt, connection: WiredTiger.turtle: encountered an illegal file format or internal value: (__wt_turtle_read, 291)
+2018-05-11T19:49:22.224+0200 E STORAGE  [initandlisten] WiredTiger error (-31804) [1526060962:223646][8136:140734266564944], file:WiredTiger.wt, connection: the process must exit and restart: WT_PANIC: WiredTiger library panic
+2018-05-11T19:49:22.224+0200 F -        [initandlisten] Fatal Assertion 28558 at src\mongo\db\storage\wiredtiger\wiredtiger_util.cpp 361
+2018-05-11T19:49:22.224+0200 F -        [initandlisten] 
+
+***aborting after fassert() failure
+
+
+2018-05-11T19:49:26.532+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\util\stacktrace_windows.cpp(244)                     mongo::printStackTrace+0x67x
+2018-05-11T19:49:26.532+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\util\signal_handlers_synchronous.cpp(182)            mongo::`anonymous namespace'::printSignalAndBacktrace+0x116x
+2018-05-11T19:49:26.532+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\util\signal_handlers_synchronous.cpp(238)            mongo::`anonymous namespace'::abruptQuit+0x133x
+2018-05-11T19:49:26.532+0200 I CONTROL  [initandlisten] ucrtbase.dll                                                                     raise+0x463x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] ucrtbase.dll                                                                     abort+0x49x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\util\assert_util.cpp(148)                            mongo::fassertFailedWithLocation+0x385x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\storage\wiredtiger\wiredtiger_util.cpp(361)       mongo::`anonymous namespace'::mdb_handle_error+0x332x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\support\err.c(277)              __eventv+0x897x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\support\err.c(330)              __wt_err+0x50x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\support\err.c(578)              __wt_illegal_value_func+0x126x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\meta\meta_turtle.c(291)         __wt_turtle_read+0x719x
+2018-05-11T19:49:26.533+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\meta\meta_table.c(281)          __wt_metadata_search+0x663x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\conn\conn_dhandle.c(48)         __conn_dhandle_config_set+0x34x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\conn\conn_dhandle.c(442)        __wt_conn_dhandle_open+0x117x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\session\session_dhandle.c(546)  __wt_session_get_dhandle+0x278x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\session\session_dhandle.c(538)  __wt_session_get_dhandle+0x475x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\session\session_dhandle.c(351)  __wt_session_get_btree_ckpt+0x196x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\cursor\cur_file.c(798)          __wt_curfile_open+0x444x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\session\session_api.c(513)      __session_open_cursor_int+0x697x
+2018-05-11T19:49:26.534+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\session\session_api.c(588)      __wt_open_cursor+0x96x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\meta\meta_table.c(92)           __wt_metadata_cursor+0x153x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\third_party\wiredtiger\src\conn\conn_api.c(2687)           wiredtiger_open+0x3119x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\storage\wiredtiger\wiredtiger_kv_engine.cpp(412)  mongo::WiredTigerKVEngine::WiredTigerKVEngine+0x2510x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\storage\wiredtiger\wiredtiger_init.cpp(91)        mongo::`anonymous namespace'::WiredTigerFactory::create+0x296x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\service_context_d.cpp(202)                        mongo::ServiceContextMongoD::initializeGlobalStorageEngine+0x1362x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\db.cpp(745)                                       mongo::`anonymous namespace'::_initAndListen+0x1721x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\db.cpp(1060)                                      mongo::`anonymous namespace'::initAndListen+0x39x
+2018-05-11T19:49:26.535+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\db.cpp(1413)                                      mongo::mongoDbMain+0x414x
+2018-05-11T19:49:26.536+0200 I CONTROL  [initandlisten] mongod.exe    ...\src\mongo\db\dbmain.cpp(45)                                    wmain+0x53x
+2018-05-11T19:49:26.536+0200 I CONTROL  [initandlisten] mongod.exe    f:\dd\vctools\crt\vcstartup\src\startup\exe_common.inl(253)        __scrt_common_main_seh+0x285x
+2018-05-11T19:49:26.536+0200 I CONTROL  [initandlisten] KERNEL32.DLL                                                                     BaseThreadInitThunk+0x20x
+2018-05-11T19:49:26.536+0200 F -        [initandlisten] Got signal: 22 (SIGABRT).
+2018-05-11T19:49:26.559+0200 I CONTROL  [initandlisten] *** unhandled exception 0x0000000E at 0x00007FFF3C564008, terminating
+2018-05-11T19:49:26.559+0200 I CONTROL  [initandlisten] *** stack trace for unhandled exception:
+2018-05-11T19:49:26.565+0200 I CONTROL  [initandlisten] KERNELBASE.dll                                                                     RaiseException+0x104x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\util\signal_handlers_synchronous.cpp(239)            mongo::`anonymous namespace'::abruptQuit+0x157x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] ucrtbase.dll                                                                       raise+0x463x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] ucrtbase.dll                                                                       abort+0x49x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\util\assert_util.cpp(148)                            mongo::fassertFailedWithLocation+0x385x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\storage\wiredtiger\wiredtiger_util.cpp(361)       mongo::`anonymous namespace'::mdb_handle_error+0x332x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\support\err.c(277)              __eventv+0x897x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\support\err.c(330)              __wt_err+0x50x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\support\err.c(578)              __wt_illegal_value_func+0x126x
+2018-05-11T19:49:26.566+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\meta\meta_turtle.c(291)         __wt_turtle_read+0x719x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\meta\meta_table.c(281)          __wt_metadata_search+0x663x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\conn\conn_dhandle.c(48)         __conn_dhandle_config_set+0x34x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\conn\conn_dhandle.c(442)        __wt_conn_dhandle_open+0x117x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\session\session_dhandle.c(546)  __wt_session_get_dhandle+0x278x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\session\session_dhandle.c(538)  __wt_session_get_dhandle+0x475x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\session\session_dhandle.c(351)  __wt_session_get_btree_ckpt+0x196x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\cursor\cur_file.c(798)          __wt_curfile_open+0x444x
+2018-05-11T19:49:26.567+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\session\session_api.c(513)      __session_open_cursor_int+0x697x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\session\session_api.c(588)      __wt_open_cursor+0x96x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\meta\meta_table.c(92)           __wt_metadata_cursor+0x153x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\third_party\wiredtiger\src\conn\conn_api.c(2687)           wiredtiger_open+0x3119x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\storage\wiredtiger\wiredtiger_kv_engine.cpp(412)  mongo::WiredTigerKVEngine::WiredTigerKVEngine+0x2510x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\storage\wiredtiger\wiredtiger_init.cpp(91)        mongo::`anonymous namespace'::WiredTigerFactory::create+0x296x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\service_context_d.cpp(202)                        mongo::ServiceContextMongoD::initializeGlobalStorageEngine+0x1362x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\db.cpp(745)                                       mongo::`anonymous namespace'::_initAndListen+0x1721x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\db.cpp(1060)                                      mongo::`anonymous namespace'::initAndListen+0x39x
+2018-05-11T19:49:26.568+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\db.cpp(1413)                                      mongo::mongoDbMain+0x414x
+2018-05-11T19:49:26.569+0200 I CONTROL  [initandlisten] mongod.exe      ...\src\mongo\db\dbmain.cpp(45)                                    wmain+0x53x
+2018-05-11T19:49:26.569+0200 I CONTROL  [initandlisten] mongod.exe      f:\dd\vctools\crt\vcstartup\src\startup\exe_common.inl(253)        __scrt_common_main_seh+0x285x
+2018-05-11T19:49:26.569+0200 I CONTROL  [initandlisten] KERNEL32.DLL                                                                       BaseThreadInitThunk+0x20x
+2018-05-11T19:49:26.569+0200 I -        [initandlisten] 
+2018-05-11T19:49:26.570+0200 I CONTROL  [initandlisten] failed to open minidump file C:\Program Files\MongoDB\Server\3.2018-05-11T17-49-26.mdmp : AccÃ¨s refusÃ©.
+2018-05-11T19:49:26.570+0200 I CONTROL  [initandlisten] *** immediate exit due to unhandled exception
+2018-05-11T19:50:30.455+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] MongoDB starting : pid=18720 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] modules: none
+2018-05-11T19:50:30.759+0200 I CONTROL  [initandlisten] build environment:
+2018-05-11T19:50:30.760+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-05-11T19:50:30.760+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-11T19:50:30.760+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-11T19:50:30.760+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-05-11T19:50:30.762+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-05-11T19:50:30.987+0200 I STORAGE  [initandlisten] WiredTiger message [1526061030:986172][18720:140734266564944], txn-recover: Set global recovery timestamp: 0
+2018-05-11T19:50:31.492+0200 I CONTROL  [initandlisten] 
+2018-05-11T19:50:31.492+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-11T19:50:31.492+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-11T19:50:31.492+0200 I CONTROL  [initandlisten] 
+2018-05-11T19:50:31.492+0200 I CONTROL  [initandlisten] 
+2018-05-11T19:50:31.508+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-05-11T19:50:31.508+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-05-11T19:50:31.508+0200 I CONTROL  [initandlisten] 
+2018-05-11T19:50:31.593+0200 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 8f7d54ca-3b1c-4ca9-a0f2-2658ddc9312c
+2018-05-11T19:50:31.976+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.6
+2018-05-11T19:50:32.106+0200 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: ddc25b00-39f1-43db-bfb4-0d8020412ef8
+2018-05-11T19:50:34.551+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-05-11T19:50:34.551+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-11T19:50:34.582+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-05-11T19:51:46.818+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61217 #1 (1 connection now open)
+2018-05-11T19:51:47.084+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:61217 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.16299" }, platform: "Node.js v8.2.1, LE, mongodb-core: 3.0.7", application: { name: "MongoDB Compass Community" } }
+2018-05-11T19:51:47.256+0200 I COMMAND  [conn1] command admin.$cmd appName: "MongoDB Compass Community" command: isMaster { ismaster: true, client: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.16299" }, platform: "Node.js v8.2.1, LE, mongodb-core: 3.0.7", application: { name: "MongoDB Compass Community" } }, compression: [], $readPreference: { mode: "secondaryPreferred" }, $db: "admin" } numYields:0 reslen:223 locks:{} protocol:op_query 103ms
+2018-05-11T19:51:49.056+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61219 #2 (2 connections now open)
+2018-05-11T19:51:50.060+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61222 #3 (3 connections now open)
+2018-05-11T19:51:51.063+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61224 #4 (4 connections now open)
+2018-05-11T19:51:51.422+0200 I COMMAND  [conn1] command admin appName: "MongoDB Compass Community" command: dbStats { dbStats: 1, lsid: { id: UUID("a59902e9-0bdd-4809-a634-d4e85b74e3d5") }, $db: "admin" } numYields:0 reslen:240 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { R: 1 } } } protocol:op_query 357ms
+2018-05-11T19:51:51.422+0200 I COMMAND  [conn2] command local command: dbStats { dbStats: 1, lsid: { id: UUID("f2992ff0-0019-4e83-acc2-e93adbe3cd3f") }, $db: "local" } numYields:0 reslen:240 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { R: 1 } } } protocol:op_query 357ms
+2018-05-11T19:53:36.874+0200 I CONTROL  [thread5] Ctrl-C signal
+2018-05-11T19:53:36.874+0200 I CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2018-05-11T19:53:36.874+0200 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2018-05-11T19:53:36.906+0200 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2018-05-11T19:53:36.916+0200 I STORAGE  [consoleTerminate] WiredTigerKVEngine shutting down
+2018-05-11T19:53:37.594+0200 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2018-05-11T19:53:37.595+0200 I CONTROL  [consoleTerminate] now exiting
+2018-05-11T19:53:37.595+0200 I CONTROL  [consoleTerminate] shutting down with code:12
+2018-05-11T19:54:02.178+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-11T19:54:02.547+0200 I CONTROL  [main] Trying to install Windows service 'MongoDB'
+2018-05-11T19:54:02.547+0200 I CONTROL  [main] Error connecting to the Service Control Manager: AccÃ¨s refusÃ©. (5)
+2018-05-11T20:44:40.799+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-11T20:44:41.909+0200 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] MongoDB starting : pid=15592 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] modules: none
+2018-05-11T20:44:41.910+0200 I CONTROL  [initandlisten] build environment:
+2018-05-11T20:44:41.911+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-05-11T20:44:41.911+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-11T20:44:41.911+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-11T20:44:41.911+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, service: true, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-05-11T20:44:41.936+0200 I -        [initandlisten] Detected data files in C:\Users\luck7\Desktop\oneMillion\mongodb\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-05-11T20:44:41.936+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-05-11T20:44:42.357+0200 I STORAGE  [initandlisten] WiredTiger message [1526064282:357092][15592:140734266564944], txn-recover: Main recovery loop: starting at 1/15104
+2018-05-11T20:44:42.487+0200 I STORAGE  [initandlisten] WiredTiger message [1526064282:487437][15592:140734266564944], txn-recover: Recovering log 1 through 2
+2018-05-11T20:44:42.620+0200 I STORAGE  [initandlisten] WiredTiger message [1526064282:619790][15592:140734266564944], txn-recover: Recovering log 2 through 2
+2018-05-11T20:44:42.811+0200 I STORAGE  [initandlisten] WiredTiger message [1526064282:810962][15592:140734266564944], txn-recover: Set global recovery timestamp: 0
+2018-05-11T20:44:43.421+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:44:43.421+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-11T20:44:43.421+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-11T20:44:43.421+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:44:43.421+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:44:43.428+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-05-11T20:44:43.428+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-05-11T20:44:43.428+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:44:45.339+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-05-11T20:44:45.339+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-11T20:44:45.361+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-05-11T20:44:45.361+0200 I STORAGE  [initandlisten] Service running
+2018-05-11T20:45:36.606+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61814 #1 (1 connection now open)
+2018-05-11T20:45:36.648+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:61814 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.16299" }, platform: "Node.js v8.2.1, LE, mongodb-core: 3.0.7", application: { name: "MongoDB Compass Community" } }
+2018-05-11T20:45:37.747+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61817 #2 (2 connections now open)
+2018-05-11T20:45:38.754+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61819 #3 (3 connections now open)
+2018-05-11T20:45:39.761+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61821 #4 (4 connections now open)
+2018-05-11T20:48:09.011+0200 I CONTROL  [serviceShutdown] got SERVICE_CONTROL_STOP request from Windows Service Control Manager, will terminate after current cmd ends
+2018-05-11T20:48:09.011+0200 I NETWORK  [serviceShutdown] shutdown: going to close listening sockets...
+2018-05-11T20:48:09.038+0200 I FTDC     [serviceShutdown] Shutting down full-time diagnostic data capture
+2018-05-11T20:48:09.063+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
+2018-05-11T20:48:09.570+0200 I STORAGE  [serviceShutdown] shutdown: removing fs lock...
+2018-05-11T20:48:09.571+0200 I CONTROL  [serviceShutdown] now exiting
+2018-05-11T20:53:58.103+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-11T20:53:58.401+0200 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-05-11T20:53:58.401+0200 I CONTROL  [initandlisten] MongoDB starting : pid=11596 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-05-11T20:53:58.401+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-05-11T20:53:58.401+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten] modules: none
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten] build environment:
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-11T20:53:58.402+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, service: true, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-05-11T20:53:58.404+0200 I -        [initandlisten] Detected data files in C:\Users\luck7\Desktop\oneMillion\mongodb\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-05-11T20:53:58.404+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-05-11T20:53:58.666+0200 I STORAGE  [initandlisten] WiredTiger message [1526064838:665998][11596:140734266564944], txn-recover: Main recovery loop: starting at 2/6400
+2018-05-11T20:53:58.791+0200 I STORAGE  [initandlisten] WiredTiger message [1526064838:791301][11596:140734266564944], txn-recover: Recovering log 2 through 3
+2018-05-11T20:53:58.900+0200 I STORAGE  [initandlisten] WiredTiger message [1526064838:899703][11596:140734266564944], txn-recover: Recovering log 3 through 3
+2018-05-11T20:53:59.097+0200 I STORAGE  [initandlisten] WiredTiger message [1526064839:96640][11596:140734266564944], txn-recover: Set global recovery timestamp: 0
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-05-11T20:53:59.247+0200 I CONTROL  [initandlisten] 
+2018-05-11T20:53:59.482+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-05-11T20:53:59.482+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-11T20:53:59.483+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-05-11T20:53:59.483+0200 I STORAGE  [initandlisten] Service running
+2018-05-11T20:58:59.549+0200 I STORAGE  [thread1] createCollection: config.system.sessions with generated UUID: b9c17c9a-d16f-414d-86e6-57dc2b7f7388
+2018-05-11T20:58:59.914+0200 I INDEX    [thread1] build index on: config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 }
+2018-05-11T20:58:59.914+0200 I INDEX    [thread1] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2018-05-11T20:58:59.957+0200 I INDEX    [thread1] build index done.  scanned 0 total records. 0 secs
+2018-05-11T20:58:59.967+0200 I COMMAND  [thread1] command config.$cmd command: createIndexes { createIndexes: "system.sessions", indexes: [ { key: { lastUse: 1 }, name: "lsidTTLIndex", expireAfterSeconds: 1800 } ], $db: "config" } numYields:0 reslen:98 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_msg 460ms
+2018-05-11T21:04:09.436+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62223 #1 (1 connection now open)
+2018-05-11T21:04:09.440+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:62223 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.16299" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-05-11T21:05:56.280+0200 I STORAGE  [conn1] createCollection: oneMillion.charts with generated UUID: 43cf5136-337b-4ad5-8167-56a2d18c8b7d
+2018-05-11T21:05:56.505+0200 I COMMAND  [conn1] command oneMillion.charts command: insert { insert: "charts", ordered: false, lsid: { id: UUID("a5fcac69-ab35-4f55-80f7-0fd4fe179d70") }, $db: "oneMillion" } ninserted:1 keysInserted:1 numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 5, w: 3 } }, Database: { acquireCount: { r: 1, w: 2, W: 1 } }, Collection: { acquireCount: { r: 1, w: 2 } } } protocol:op_query 304ms
+2018-05-11T21:05:57.637+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62358 #2 (2 connections now open)
+2018-05-11T22:30:35.740+0200 I CONTROL  [serviceShutdown] got SERVICE_CONTROL_STOP request from Windows Service Control Manager, will terminate after current cmd ends
+2018-05-11T22:30:35.741+0200 I NETWORK  [serviceShutdown] shutdown: going to close listening sockets...
+2018-05-11T22:30:35.742+0200 F CONTROL  [thread1] Encountered an error in PeriodicRunnerASIO: L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.
+2018-05-11T22:30:35.742+0200 F CONTROL  [thread1] Encountered an error in PeriodicRunnerASIO: L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.
+2018-05-11T22:30:35.783+0200 I FTDC     [serviceShutdown] Shutting down full-time diagnostic data capture
+2018-05-11T22:30:35.789+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
+2018-05-11T22:30:36.295+0200 I STORAGE  [serviceShutdown] shutdown: removing fs lock...
+2018-05-11T22:30:36.296+0200 I CONTROL  [serviceShutdown] now exiting
+2018-05-11T22:31:11.778+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-11T22:31:12.110+0200 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-05-11T22:31:12.111+0200 I CONTROL  [initandlisten] MongoDB starting : pid=15636 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-05-11T22:31:12.111+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] modules: none
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] build environment:
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-11T22:31:12.112+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, service: true, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-05-11T22:31:12.114+0200 I -        [initandlisten] Detected data files in C:\Users\luck7\Desktop\oneMillion\mongodb\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-05-11T22:31:12.114+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-05-11T22:31:12.560+0200 I STORAGE  [initandlisten] WiredTiger message [1526070672:559557][15636:140734266564944], txn-recover: Main recovery loop: starting at 3/40576
+2018-05-11T22:31:12.767+0200 I STORAGE  [initandlisten] WiredTiger message [1526070672:767109][15636:140734266564944], txn-recover: Recovering log 3 through 4
+2018-05-11T22:31:13.017+0200 I STORAGE  [initandlisten] WiredTiger message [1526070673:16774][15636:140734266564944], txn-recover: Recovering log 4 through 4
+2018-05-11T22:31:13.401+0200 I STORAGE  [initandlisten] WiredTiger message [1526070673:400793][15636:140734266564944], txn-recover: Set global recovery timestamp: 0
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] 
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] 
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] 
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-05-11T22:31:13.751+0200 I CONTROL  [initandlisten] 
+2018-05-11T22:31:16.262+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-05-11T22:31:16.262+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-11T22:31:16.263+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-05-11T22:31:16.263+0200 I STORAGE  [initandlisten] Service running
+2018-05-11T22:31:17.423+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:53470 #1 (1 connection now open)
+2018-05-11T22:31:28.264+0200 I CONTROL  [serviceShutdown] got SERVICE_CONTROL_STOP request from Windows Service Control Manager, will terminate after current cmd ends
+2018-05-11T22:31:28.265+0200 I NETWORK  [serviceShutdown] shutdown: going to close listening sockets...
+2018-05-11T22:31:28.265+0200 I FTDC     [serviceShutdown] Shutting down full-time diagnostic data capture
+2018-05-11T22:31:28.270+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
+2018-05-11T22:31:28.832+0200 I STORAGE  [serviceShutdown] shutdown: removing fs lock...
+2018-05-11T22:31:28.833+0200 I CONTROL  [serviceShutdown] now exiting
+2018-05-12T08:40:41.217+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-12T08:40:50.572+0200 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] MongoDB starting : pid=1748 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] modules: none
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] build environment:
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-12T08:40:50.573+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, service: true, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-05-12T08:40:50.624+0200 I -        [initandlisten] Detected data files in C:\Users\luck7\Desktop\oneMillion\mongodb\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-05-12T08:40:50.634+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-05-12T08:40:51.248+0200 I STORAGE  [initandlisten] WiredTiger message [1526107251:248244][1748:140705587159376], txn-recover: Main recovery loop: starting at 4/4864
+2018-05-12T08:40:51.381+0200 I STORAGE  [initandlisten] WiredTiger message [1526107251:380816][1748:140705587159376], txn-recover: Recovering log 4 through 5
+2018-05-12T08:40:51.483+0200 I STORAGE  [initandlisten] WiredTiger message [1526107251:483354][1748:140705587159376], txn-recover: Recovering log 5 through 5
+2018-05-12T08:40:51.696+0200 I STORAGE  [initandlisten] WiredTiger message [1526107251:696350][1748:140705587159376], txn-recover: Set global recovery timestamp: 0
+2018-05-12T08:40:52.756+0200 I CONTROL  [initandlisten] 
+2018-05-12T08:40:52.756+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-12T08:40:52.756+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-12T08:40:52.756+0200 I CONTROL  [initandlisten] 
+2018-05-12T08:40:52.790+0200 I CONTROL  [initandlisten] 
+2018-05-12T08:40:52.790+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-05-12T08:40:52.790+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-05-12T08:40:52.791+0200 I CONTROL  [initandlisten] 
+2018-05-12T08:40:58.674+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-05-12T08:40:58.674+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-12T08:40:58.687+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-05-12T08:40:58.688+0200 I STORAGE  [initandlisten] Service running
+2018-05-12T22:52:50.746+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:54021 #1 (1 connection now open)
+2018-05-12T22:52:51.067+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:54021 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.16299" }, platform: "Node.js v8.2.1, LE, mongodb-core: 3.0.7", application: { name: "MongoDB Compass Community" } }
+2018-05-12T22:52:52.404+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:54023 #2 (2 connections now open)
+2018-05-12T22:52:52.649+0200 I COMMAND  [conn1] command admin.$cmd appName: "MongoDB Compass Community" command: buildInfo { buildInfo: 1, lsid: { id: UUID("50988350-532a-4a3c-83f5-ad31162b7201") }, $db: "admin" } numYields:0 reslen:1149 locks:{} protocol:op_query 176ms
+2018-05-12T22:52:53.419+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:54025 #3 (3 connections now open)
+2018-05-12T22:52:53.563+0200 E STORAGE  [conn3] WiredTiger error (2) [1526158373:559008][1748:140705587159376], WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-1--5191856177709024063.wt: file-size: GetFileAttributesEx: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:53.597+0200 E STORAGE  [conn3] WiredTiger error (2) [1526158373:596107][1748:140705587159376], WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-4--5191856177709024063.wt: file-size: GetFileAttributesEx: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:53.597+0200 I COMMAND  [conn3] command admin.$cmd command: listDatabases { listDatabases: 1, lsid: { id: UUID("bfd01b5c-3abf-4e91-9c58-99364f2e48c0") }, $db: "admin" } numYields:0 reslen:286 locks:{ Global: { acquireCount: { r: 10 } }, Database: { acquireCount: { r: 4 } } } protocol:op_query 176ms
+2018-05-12T22:52:54.422+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:54027 #4 (4 connections now open)
+2018-05-12T22:52:54.473+0200 E STORAGE  [conn2] WiredTiger error (2) [1526158374:472437][1748:140705587159376], WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-1--5191856177709024063.wt: file-size: GetFileAttributesEx: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:54.555+0200 I COMMAND  [conn2] command config command: dbStats { dbStats: 1, lsid: { id: UUID("50988350-532a-4a3c-83f5-ad31162b7201") }, $db: "config" } numYields:0 reslen:241 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { R: 1 } } } protocol:op_query 101ms
+2018-05-12T22:52:54.555+0200 I COMMAND  [conn1] command admin appName: "MongoDB Compass Community" command: dbStats { dbStats: 1, lsid: { id: UUID("bfd01b5c-3abf-4e91-9c58-99364f2e48c0") }, $db: "admin" } numYields:0 reslen:240 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { R: 1 } } } protocol:op_query 101ms
+2018-05-12T22:52:55.435+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:54029 #5 (5 connections now open)
+2018-05-12T22:52:55.436+0200 E STORAGE  [conn2] WiredTiger error (2) [1526158375:435998][1748:140705587159376], WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-4--5191856177709024063.wt: file-size: GetFileAttributesEx: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:57.702+0200 E STORAGE  [conn1] WiredTiger error (2) [1526158377:702024][1748:140705587159376], WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-4--5191856177709024063.wt: file-size: GetFileAttributesEx: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:57.871+0200 E STORAGE  [conn3] WiredTiger error (2) [1526158377:871471][1748:140705587159376], file:index-4--5191856177709024063.wt, WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-4--5191856177709024063.wt: handle-open: CreateFileW: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:57.896+0200 E STORAGE  [conn3] WiredTiger error (2) [1526158377:896537][1748:140705587159376], WT_SESSION.open_cursor: C:\Users\luck7\Desktop\oneMillion\mongodb\db\index-4--5191856177709024063.wt: file-size: GetFileAttributesEx: Le fichier spécifié est introuvable.
+: No such file or directory
+2018-05-12T22:52:57.896+0200 I COMMAND  [conn3] command oneMillion.charts command: collStats { collStats: "charts", verbose: 1, lsid: { id: UUID("bfd01b5c-3abf-4e91-9c58-99364f2e48c0") }, $db: "oneMillion" } numYields:0 reslen:8352 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 177ms
+2018-05-12T22:53:01.449+0200 I NETWORK  [conn1] end connection 127.0.0.1:54021 (3 connections now open)
+2018-05-12T22:53:01.449+0200 I NETWORK  [conn4] end connection 127.0.0.1:54027 (4 connections now open)
+2018-05-12T22:53:01.449+0200 I NETWORK  [conn5] end connection 127.0.0.1:54029 (2 connections now open)
+2018-05-12T22:53:01.449+0200 I NETWORK  [conn2] end connection 127.0.0.1:54023 (1 connection now open)
+2018-05-12T22:53:01.449+0200 I NETWORK  [conn3] end connection 127.0.0.1:54025 (0 connections now open)
+2018-05-12T22:53:15.487+0200 I CONTROL  [serviceShutdown] got SERVICE_CONTROL_STOP request from Windows Service Control Manager, will terminate after current cmd ends
+2018-05-12T22:53:15.551+0200 I NETWORK  [serviceShutdown] shutdown: going to close listening sockets...
+2018-05-12T22:53:15.590+0200 I FTDC     [serviceShutdown] Shutting down full-time diagnostic data capture
+2018-05-12T22:53:15.641+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
+2018-05-12T22:53:16.477+0200 I STORAGE  [serviceShutdown] shutdown: removing fs lock...
+2018-05-12T22:53:16.511+0200 I CONTROL  [serviceShutdown] now exiting

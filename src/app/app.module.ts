@@ -35,6 +35,8 @@ import { ImportComponent } from './import/import.component';
 import { GraphicComponent } from './graphic/graphic.component';
 import {HttpService} from './service/http.service';
 import { TableComponent } from './table/table.component';
+import { StrategieComponent } from './strategie/strategie.component';
+
 
 
 
@@ -85,6 +87,7 @@ const appRoutes: Routes = [
     ImportComponent,
     GraphicComponent,
     TableComponent,
+    StrategieComponent,
   ],
   imports: [
     BrowserModule,
