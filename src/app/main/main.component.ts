@@ -11,11 +11,12 @@ export class MainComponent implements OnInit {
   constructor( ) {
   }
 
-  ngOnInit() {
-    console.log('Main init');
-  }
   displayTable(table) {
     this.tableComponent.tableDisplay(table);
+  }
+
+  ngOnInit() {
+    console.log('Main init');
   }
 
 }

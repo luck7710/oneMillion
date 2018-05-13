@@ -1,8 +1,10 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, Output, ViewChild,EventEmitter} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {TableData} from '../TableData';
+import {SelectionModel} from '@angular/cdk/collections';
 
-const DEFAULT_COLUMNS = ['platform', 'pair', 'startDate', 'endDate', 'numberCandles', 'isAllImported', 'importDate'];
+
+const DEFAULT_COLUMNS = [ 'platform', 'pair', 'startDate', 'endDate', 'numberCandles', 'isAllImported', 'importDate'];
 
 @Component({
   selector: 'app-table',
@@ -13,11 +15,13 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @Input() table;
+  @Output() tableSelected = new EventEmitter();
   displayedColumns = DEFAULT_COLUMNS;
-  dataSource: MatTableDataSource<TableData>;
   tableIsAvalaible = false;
+  dataSource: MatTableDataSource<TableData>;
+  selection = new SelectionModel<TableData>(true, []);
+
   constructor() {
-    console.log('Table init');
   }
 
   tableDisplay(tableData) {
@@ -34,7 +38,30 @@ export class TableComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  selectionRow(row: TableData) {
+    this.selection.clear();
+    this.selection.toggle(row);
+    this.tableSelected.emit(this.selection.selected);
+  }
+
+  getSelectionCamera(): TableData[] {
+    return this.selection.selected;
+  }
+
   ngOnInit() {
+    console.log('Table init');
   }
 
 }

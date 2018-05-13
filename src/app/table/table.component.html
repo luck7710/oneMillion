@@ -9,6 +9,21 @@
 
     <mat-table [dataSource]="dataSource" matSort>
 
+      <!-- Selection Column -->
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef class="col-selection">
+          <input type="checkbox"
+                 (change)="$event ? masterToggle() : null"
+                 [checked]="selection.hasValue() && isAllSelected()"
+                 [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-selection">
+          <input type="checkbox"
+                 (click)="$event.stopPropagation()"
+                 (change)="$event ? selection.toggle(row) : null;"
+                 [checked]="selection.isSelected(row)">
+        </mat-cell>
+      </ng-container>
 
       <!-- ID Column -->
       <ng-container matColumnDef="platform">
@@ -54,7 +69,9 @@
 
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               [class.selected]="selection.isSelected(row)"
+               (click)="selectionRow(row)"></mat-row>
     </mat-table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
