@@ -8,6 +8,7 @@ import {TableComponent} from '../table/table.component';
 })
 export class MainComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
+  test = false;
   constructor( ) {
   }
 
