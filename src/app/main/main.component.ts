@@ -8,14 +8,13 @@ import {TableComponent} from '../table/table.component';
 })
 export class MainComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
-  test = false;
-  constructor( ) {
+
+  constructor() {
   }
 
   displayTable(table) {
     this.tableComponent.tableDisplay(table);
   }
-
   ngOnInit() {
     console.log('Main init');
   }

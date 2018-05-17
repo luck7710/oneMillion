@@ -6,10 +6,8 @@
  */
 monURL = 'https://www.highcharts.com/samples/data/aapl-ohlc.json';
 
-function myFunction() {
-  monURL = '/chart/';
-  window.analyzes
-}
+function myFunction(test) {
+console.log(test)};
 
 // Predefined analyzes, like default dataset+indicators+annotations
 window.analyzes = [{

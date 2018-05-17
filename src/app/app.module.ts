@@ -36,6 +36,7 @@ import { GraphicComponent } from './graphic/graphic.component';
 import {HttpService} from './service/http.service';
 import { TableComponent } from './table/table.component';
 import { BacktestingComponent } from './backtesting/backtesting.component';
+import { GraphicAdvancedComponent } from './graphic-advanced/graphic-advanced.component';
 
 
 
@@ -88,6 +89,7 @@ const appRoutes: Routes = [
     GraphicComponent,
     TableComponent,
     BacktestingComponent,
+    GraphicAdvancedComponent,
   ],
   imports: [
     BrowserModule,

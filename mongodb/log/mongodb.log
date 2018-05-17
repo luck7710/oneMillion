@@ -1175,3 +1175,112 @@
 2018-05-16T22:49:07.911+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
 2018-05-16T22:49:08.452+0200 I STORAGE  [serviceShutdown] shutdown: removing fs lock...
 2018-05-16T22:49:08.454+0200 I CONTROL  [serviceShutdown] now exiting
+2018-05-17T05:19:08.317-0400 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] MongoDB starting : pid=4915 port=27017 dbpath=/home/osboxes/Desktop/oneMillion/mongodb/db 64-bit host=osboxes
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] db version v3.4.7
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] git version: cf38c1b8a0a8dca4a11737581beafef4fe120bcd
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] modules: none
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] build environment:
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-17T05:19:08.320-0400 I CONTROL  [initandlisten] options: { config: "mongodb/mongodb_linux.conf", net: { bindIp: "127.0.0.1" }, storage: { dbPath: "/home/osboxes/Desktop/oneMillion/mongodb/db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/home/osboxes/Desktop/oneMillion/mongodb/log/mongodb.log" } }
+2018-05-17T05:19:08.368-0400 I STORAGE  [initandlisten] 
+2018-05-17T05:19:08.368-0400 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2018-05-17T05:19:08.368-0400 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2018-05-17T05:19:08.368-0400 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1460M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2018-05-17T05:19:08.486-0400 I CONTROL  [initandlisten] 
+2018-05-17T05:19:08.486-0400 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-17T05:19:08.486-0400 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-17T05:19:08.486-0400 I CONTROL  [initandlisten] 
+2018-05-17T05:19:08.560-0400 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/home/osboxes/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-17T05:19:08.592-0400 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2018-05-17T05:19:08.592-0400 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2018-05-17T05:19:08.605-0400 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2018-05-17T05:19:08.605-0400 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2018-05-17T05:19:08.605-0400 I NETWORK  [thread1] waiting for connections on port 27017
+2018-05-17T05:20:57.688-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:42994 #1 (1 connection now open)
+2018-05-17T05:20:57.721-0400 I NETWORK  [conn1] received client metadata from 127.0.0.1:42994 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T05:29:20.321-0400 I -        [conn1] end connection 127.0.0.1:42994 (1 connection now open)
+2018-05-17T05:29:44.121-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:43020 #2 (1 connection now open)
+2018-05-17T05:29:44.128-0400 I NETWORK  [conn2] received client metadata from 127.0.0.1:43020 conn2: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T05:30:28.657-0400 I -        [conn2] end connection 127.0.0.1:43020 (1 connection now open)
+2018-05-17T05:30:52.366-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:43562 #3 (1 connection now open)
+2018-05-17T05:30:52.378-0400 I NETWORK  [conn3] received client metadata from 127.0.0.1:43562 conn3: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T06:03:07.470-0400 I -        [conn3] end connection 127.0.0.1:43562 (1 connection now open)
+2018-05-17T06:03:50.059-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:59400 #4 (1 connection now open)
+2018-05-17T06:03:50.064-0400 I NETWORK  [conn4] received client metadata from 127.0.0.1:59400 conn4: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T06:07:13.454-0400 I -        [conn4] end connection 127.0.0.1:59400 (1 connection now open)
+2018-05-17T06:07:48.281-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:33108 #5 (1 connection now open)
+2018-05-17T06:07:48.292-0400 I NETWORK  [conn5] received client metadata from 127.0.0.1:33108 conn5: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T07:55:34.573-0400 I -        [conn5] end connection 127.0.0.1:33108 (1 connection now open)
+2018-05-17T07:56:11.468-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:56862 #6 (1 connection now open)
+2018-05-17T07:56:11.490-0400 I NETWORK  [conn6] received client metadata from 127.0.0.1:56862 conn6: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T07:58:45.525-0400 I -        [conn6] end connection 127.0.0.1:56862 (1 connection now open)
+2018-05-17T07:59:23.066-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:58388 #7 (1 connection now open)
+2018-05-17T07:59:23.478-0400 I NETWORK  [conn7] received client metadata from 127.0.0.1:58388 conn7: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:00:18.136-0400 I -        [conn7] end connection 127.0.0.1:58388 (1 connection now open)
+2018-05-17T08:00:58.339-0400 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 555, after asserts: 717, after backgroundFlushing: 747, after connections: 747, after dur: 747, after extra_info: 860, after globalLock: 1001, after locks: 1062, after network: 1092, after opLatencies: 1133, after opcounters: 1133, after opcountersRepl: 1133, after repl: 1163, after security: 1163, after storageEngine: 1194, after tcmalloc: 1357, after wiredTiger: 1540, at end: 1695 }
+2018-05-17T08:01:04.422-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:59186 #8 (1 connection now open)
+2018-05-17T08:01:04.513-0400 I NETWORK  [conn8] received client metadata from 127.0.0.1:59186 conn8: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:05:28.156-0400 I CONTROL  [signalProcessingThread] got signal 1 (Hangup), will terminate after current cmd ends
+2018-05-17T08:05:28.539-0400 I -        [conn8] end connection 127.0.0.1:59186 (1 connection now open)
+2018-05-17T08:05:28.824-0400 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2018-05-17T08:05:28.824-0400 I NETWORK  [signalProcessingThread] closing listening socket: 7
+2018-05-17T08:05:28.824-0400 I NETWORK  [signalProcessingThread] closing listening socket: 8
+2018-05-17T08:05:28.825-0400 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2018-05-17T08:05:28.825-0400 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2018-05-17T08:05:28.845-0400 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2018-05-17T08:05:29.357-0400 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2018-05-17T08:05:29.728-0400 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2018-05-17T08:05:29.746-0400 I CONTROL  [signalProcessingThread] now exiting
+2018-05-17T08:05:29.746-0400 I CONTROL  [initandlisten] shutting down with code:0
+2018-05-17T08:07:25.652-0400 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-05-17T08:07:25.702-0400 I CONTROL  [initandlisten] MongoDB starting : pid=6831 port=27017 dbpath=/home/osboxes/Desktop/oneMillion/mongodb/db 64-bit host=osboxes
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] db version v3.4.7
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] git version: cf38c1b8a0a8dca4a11737581beafef4fe120bcd
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] modules: none
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] build environment:
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten]     distarch: x86_64
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-05-17T08:07:25.703-0400 I CONTROL  [initandlisten] options: { config: "mongodb/mongodb_linux.conf", net: { bindIp: "127.0.0.1" }, storage: { dbPath: "/home/osboxes/Desktop/oneMillion/mongodb/db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/home/osboxes/Desktop/oneMillion/mongodb/log/mongodb.log" } }
+2018-05-17T08:07:25.749-0400 I -        [initandlisten] Detected data files in /home/osboxes/Desktop/oneMillion/mongodb/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-05-17T08:07:25.749-0400 I STORAGE  [initandlisten] 
+2018-05-17T08:07:25.749-0400 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2018-05-17T08:07:25.749-0400 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2018-05-17T08:07:25.749-0400 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1460M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2018-05-17T08:07:26.099-0400 I CONTROL  [initandlisten] 
+2018-05-17T08:07:26.099-0400 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-05-17T08:07:26.099-0400 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-05-17T08:07:26.099-0400 I CONTROL  [initandlisten] 
+2018-05-17T08:07:26.166-0400 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/home/osboxes/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-05-17T08:07:26.167-0400 I NETWORK  [thread1] waiting for connections on port 27017
+2018-05-17T08:08:08.248-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:34386 #1 (1 connection now open)
+2018-05-17T08:08:08.252-0400 I NETWORK  [conn1] received client metadata from 127.0.0.1:34386 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:11:55.913-0400 I -        [conn1] end connection 127.0.0.1:34386 (1 connection now open)
+2018-05-17T08:12:15.945-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:36380 #2 (1 connection now open)
+2018-05-17T08:12:15.950-0400 I NETWORK  [conn2] received client metadata from 127.0.0.1:36380 conn2: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:20:07.933-0400 I -        [conn2] end connection 127.0.0.1:36380 (1 connection now open)
+2018-05-17T08:20:30.361-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:40452 #3 (1 connection now open)
+2018-05-17T08:20:30.365-0400 I NETWORK  [conn3] received client metadata from 127.0.0.1:40452 conn3: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:22:32.328-0400 I -        [conn3] end connection 127.0.0.1:40452 (1 connection now open)
+2018-05-17T08:22:53.884-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:41624 #4 (1 connection now open)
+2018-05-17T08:22:53.892-0400 I NETWORK  [conn4] received client metadata from 127.0.0.1:41624 conn4: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:24:19.484-0400 I -        [conn4] end connection 127.0.0.1:41624 (1 connection now open)
+2018-05-17T08:24:41.514-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:42502 #5 (1 connection now open)
+2018-05-17T08:24:41.519-0400 I NETWORK  [conn5] received client metadata from 127.0.0.1:42502 conn5: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:27:49.794-0400 I -        [conn5] end connection 127.0.0.1:42502 (1 connection now open)
+2018-05-17T08:28:11.918-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:44204 #6 (1 connection now open)
+2018-05-17T08:28:11.922-0400 I NETWORK  [conn6] received client metadata from 127.0.0.1:44204 conn6: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:31:38.842-0400 I -        [conn6] end connection 127.0.0.1:44204 (1 connection now open)
+2018-05-17T08:32:04.894-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:46082 #7 (1 connection now open)
+2018-05-17T08:32:04.898-0400 I NETWORK  [conn7] received client metadata from 127.0.0.1:46082 conn7: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:40:58.733-0400 I -        [conn7] end connection 127.0.0.1:46082 (1 connection now open)
+2018-05-17T08:41:19.000-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:50510 #8 (1 connection now open)
+2018-05-17T08:41:19.005-0400 I NETWORK  [conn8] received client metadata from 127.0.0.1:50510 conn8: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
+2018-05-17T08:45:48.500-0400 I -        [conn8] end connection 127.0.0.1:50510 (1 connection now open)
+2018-05-17T08:46:09.863-0400 I NETWORK  [thread1] connection accepted from 127.0.0.1:52850 #9 (1 connection now open)
+2018-05-17T08:46:09.868-0400 I NETWORK  [conn9] received client metadata from 127.0.0.1:52850 conn9: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.13.0-41-generic" }, platform: "Node.js v8.11.0, LE, mongodb-core: 3.0.7" }
