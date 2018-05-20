@@ -8,6 +8,9 @@ export class HttpService {
   getCharts() {
     return this.http.get('/chart/').map((res) => res.json());
   }
+  getApplCharts() {
+    return this.http.get('https://www.highcharts.com/samples/data/aapl-ohlc.json').map((res) => res.json());
+  }
   getChartById(id) {
     this.http.get('/chart/' + id).subscribe(data => {
       console.log(JSON.parse(data['_body']));

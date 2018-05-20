@@ -8,8 +8,11 @@ import {TableComponent} from '../table/table.component';
 })
 export class MainComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
-
+  isDisplay = false;
   constructor() {
+  }
+  switchDisplay() {
+    this.isDisplay = !this.isDisplay;
   }
 
   displayTable(table) {

@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ChartModule} from 'angular2-highcharts';
+// import {ChartModule} from 'angular2-highcharts';
 import {RouterModule, Routes} from '@angular/router';
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -111,7 +111,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartModule.forRoot(require('highcharts/highstock')),
+    // ChartModule.forRoot(require('highcharts/highstock')),
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true} // <-- debugging purposes only

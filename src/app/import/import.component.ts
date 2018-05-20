@@ -106,7 +106,7 @@ export class ImportComponent implements OnInit {
           }
         )
         .subscribe(result => {
-          this.graphicComponent.traceChart(this.chart);
+         // this.graphicComponent.traceChart(this.chart);
         });
     }
   }
