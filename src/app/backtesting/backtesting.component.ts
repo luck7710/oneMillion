@@ -30,6 +30,10 @@ export class BacktestingComponent implements OnInit {
     );
   }
 
+  backtestingbasic(table) {
+  }
+
+
   backtesting(table) {
     console.log(table[0]);
     this.RSI = new RSI(14);

@@ -44,10 +44,10 @@ export class GraphicAdvancedComponent implements OnInit {
       [1524178140000, 6707.6, 6711.1, 6704.3, 6704.3, 6706.5]
     ];
 
-    console.log('Graphic Advanced instanciate');
+/*    console.log('Graphic Advanced instanciate');
         require.ensure(['../../assets/stocks/index.js'], require => {
           const yourModule = require('../../assets/stocks/index.js')(aapl);
-        });
+        });*/
   }
 
   getChart() {
@@ -67,13 +67,13 @@ export class GraphicAdvancedComponent implements OnInit {
       require('../../assets/stocks/index.js')(test);
     }, false);
   }
-  test2(test) {
+/*  test2(test) {
     window.addEventListener('DOMContentLoaded', function () {
       require.ensure(['../../assets/stocks/index.js'], require => {
         const yourModule = require('../../assets/stocks/index.js')(test);
       });
     });
-  }
+  }*/
 
   changeaapl() {
     const aapl = [
@@ -92,7 +92,7 @@ export class GraphicAdvancedComponent implements OnInit {
       [1524178080000, 6717.9, 6718.9, 6705.1, 6705.1, 6709.3],
       [1524177900000, 6708.2, 6708.9, 6708.2, 6708.9, 6708.9]
     ];
-    this.test2(aapl);
+    // this.test2(aapl);
   }
 
   ngOnInit() {

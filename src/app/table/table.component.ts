@@ -51,6 +51,7 @@ export class TableComponent implements OnInit {
   }
 
   selectionRow(row: TableData) {
+    console.log('ok');
     this.selection.clear();
     this.selection.toggle(row);
     this.tableSelected.emit(this.selection.selected);

@@ -1,7 +1,6 @@
 <app-header></app-header>
 <app-import (displayTable)="displayTable($event)"></app-import>
-<button (click)="switchDisplay()"></button>
-<app-backtesting *ngIf="!isDisplay"></app-backtesting>
-<app-graphic *ngIf="!isDisplay"></app-graphic>
-<!--<app-table></app-table>-->
-
+<app-backtesting *ngIf="false"></app-backtesting>
+<button (click)="display()"></button>
+<app-table (tableSelected)="displayGraphic($event)"></app-table>
+<app-graphic *ngIf="isDisplay"></app-graphic>
