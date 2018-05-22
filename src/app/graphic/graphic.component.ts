@@ -1,8 +1,29 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TableData} from '../TableData';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {init} from 'protractor/built/launcher';
-
-
+import {setInterval} from 'timers';
+require('../../assets/stocks/indicators/indicators')(Highcharts);
+require('../../assets/stocks/indicators/ema')(Highcharts);
+require('../../assets/stocks/indicators/macd')(Highcharts);
+require('../../assets/stocks/indicators/rsi')(Highcharts);
+require('../../assets/stocks/indicators/atr')(Highcharts);
+require('../../assets/stocks/indicators/accumulation-distribution')(Highcharts);
+require('../../assets/stocks/indicators/bollinger-bands')(Highcharts);
+require('../../assets/stocks/indicators/cci')(Highcharts);
+require('../../assets/stocks/indicators/cmf')(Highcharts);
+require('../../assets/stocks/indicators/ichimoku-kinko-hyo')(Highcharts);
+require('../../assets/stocks/indicators/mfi')(Highcharts);
+require('../../assets/stocks/indicators/momentum')(Highcharts);
+require('../../assets/stocks/indicators/pivot-points')(Highcharts);
+require('../../assets/stocks/indicators/price-envelopes')(Highcharts);
+require('../../assets/stocks/indicators/roc')(Highcharts);
+require('../../assets/stocks/indicators/stochastic')(Highcharts);
+require('../../assets/stocks/indicators/volume-by-price')(Highcharts);
+require('../../assets/stocks/indicators/vwap')(Highcharts);
+require('../../assets/stocks/indicators/wma')(Highcharts);
+require('../../assets/stocks/indicators/zigzag')(Highcharts);
+require('../../assets/stocks/graphic/annotations')(Highcharts);
+require('../../assets/stocks/graphic/data')(Highcharts);
+require('../../assets/stocks/graphic/drag-panes')(Highcharts);
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
@@ -10,38 +31,19 @@ import {init} from 'protractor/built/launcher';
 })
 export class GraphicComponent implements OnInit {
   options: Object;
+  isDisplay = false;
+  private chart: any;
+
 
   constructor() {
     console.log('Graphic Component Instanciate');
-    require('../../assets/stocks/indicators/indicators')(Highcharts);
-    require('../../assets/stocks/indicators/ema')(Highcharts);
-    require('../../assets/stocks/indicators/macd')(Highcharts);
-    require('../../assets/stocks/indicators/rsi')(Highcharts);
-    require('../../assets/stocks/indicators/atr')(Highcharts);
-    require('../../assets/stocks/indicators/accumulation-distribution')(Highcharts);
-    require('../../assets/stocks/indicators/bollinger-bands')(Highcharts);
-    require('../../assets/stocks/indicators/cci')(Highcharts);
-    require('../../assets/stocks/indicators/cmf')(Highcharts);
-    require('../../assets/stocks/indicators/ichimoku-kinko-hyo')(Highcharts);
-    require('../../assets/stocks/indicators/mfi')(Highcharts);
-    require('../../assets/stocks/indicators/momentum')(Highcharts);
-    require('../../assets/stocks/indicators/pivot-points')(Highcharts);
-    require('../../assets/stocks/indicators/price-envelopes')(Highcharts);
-    require('../../assets/stocks/indicators/roc')(Highcharts);
-    require('../../assets/stocks/indicators/stochastic')(Highcharts);
-    require('../../assets/stocks/indicators/volume-by-price')(Highcharts);
-    require('../../assets/stocks/indicators/vwap')(Highcharts);
-    require('../../assets/stocks/indicators/wma')(Highcharts);
-    require('../../assets/stocks/indicators/zigzag')(Highcharts);
-    require('../../assets/stocks/graphic/annotations')(Highcharts);
-    require('../../assets/stocks/graphic/data')(Highcharts);
-    require('../../assets/stocks/graphic/drag-panes')(Highcharts);
   }
 
 
   public traceChart(table) {
-    console.log('____________________', table);
-    Highcharts.stockChart('container', {
+    console.log(table);
+    this.isDisplay = true;
+    setTimeout( () =>  Highcharts.stockChart('container', {
 
       rangeSelector: {
         selected: 2
@@ -104,9 +106,11 @@ export class GraphicComponent implements OnInit {
         yAxis: 1,
         linkedTo: 'aapl'
       }]
-    });
+    }), 0);
   }
-
+  destroyChart() {
+    this.isDisplay = false;
+  }
   public traceBasicChart(table) {
     this.options = {
       title: {text: 'BTC Stock Price'},

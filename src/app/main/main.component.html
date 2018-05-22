@@ -1,6 +1,11 @@
 <app-header></app-header>
 <app-import (displayTable)="displayTable($event)"></app-import>
 <app-backtesting *ngIf="false"></app-backtesting>
-<button (click)="display()"></button>
 <app-table (tableSelected)="displayGraphic($event)"></app-table>
-<app-graphic *ngIf="isDisplay"></app-graphic>
+<button mat-raised-button color="primary" (click)="destroyAdvancedGraphic()">DESTROYADVANXED</button>
+<button mat-raised-button color="primary" (click)="destroyGraphic()">DESTROY</button>
+<app-graphic></app-graphic>
+
+<!--<button mat-raised-button color="primary" (click)="someFuncAdd()">ADD</button>-->
+<!--<button mat-raised-button color="danger" (click)="someFuncClear()">CLEAR</button>-->
+<!--<button mat-raised-button color="warning" (click)="someFuncRemove()">REMOVE</button>-->

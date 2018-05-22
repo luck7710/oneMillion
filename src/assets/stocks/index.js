@@ -1,5 +1,5 @@
 (function (a) {
-  "object" === typeof module && module.exports ? module.exports = a : a(datasss)
+  "object" === typeof module && module.exports ? module.exports = a : a(data);
 })(function (a) {
   /**
    * This is a complex demo to demonstrate how Highstock can be set up to
@@ -11,7 +11,7 @@
     console.log('Je suis encapsulée !');
   }
 
-  console.log('________________',a);
+  console.log(a);
 // Predefined analyzes, like default dataset+indicators+annotations
   window.analyzes = [{
     indicators: [{

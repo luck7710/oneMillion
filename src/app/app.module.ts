@@ -7,6 +7,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // import {ChartModule} from 'angular2-highcharts';
 import {RouterModule, Routes} from '@angular/router';
+import {TableData} from './TableData';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
@@ -34,9 +35,11 @@ import { HeaderComponent } from './header/header.component';
 import { ImportComponent } from './import/import.component';
 import { GraphicComponent } from './graphic/graphic.component';
 import {HttpService} from './service/http.service';
+import {DynamicService} from './service/dynamic.service';
 import { TableComponent } from './table/table.component';
 import { BacktestingComponent } from './backtesting/backtesting.component';
 import { GraphicAdvancedComponent } from './graphic-advanced/graphic-advanced.component';
+import { DynamicComponent } from './dynamic/dynamic.component';
 
 
 
@@ -90,6 +93,7 @@ const appRoutes: Routes = [
     TableComponent,
     BacktestingComponent,
     GraphicAdvancedComponent,
+    DynamicComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,8 +120,8 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: true} // <-- debugging purposes only
     )],
-  entryComponents: [DialogImportComponent],
-  providers: [HttpService],
+  entryComponents: [DialogImportComponent, DynamicComponent],
+  providers: [HttpService, DynamicService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

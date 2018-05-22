@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
 import {HttpService} from '../service/http.service';
+import {TableData} from '../TableData';
+import {Component, Input, OnInit} from '@angular/core';
 
 require('../../assets/stocks/indicators/indicators')(Highcharts);
 require('../../assets/stocks/indicators/ema')(Highcharts);
@@ -32,8 +33,11 @@ require('../../assets/stocks/graphic/drag-panes')(Highcharts);
 export class GraphicAdvancedComponent implements OnInit {
   @Input() tableSelected;
   data: any;
+  isDisplay = false;
+  table: any;
 
-  constructor(private httpService: HttpService) {
+  constructor() {
+    console.log('Graphic Advanced Instanciate');
     const aapl = [
       [1524177780000, 6709.1, 6709.1, 6708.9, 6708.9, 6709.0],
       [1524177840000, 6708.9, 6708.9, 6708.2, 6708.2, 6708.6],
@@ -43,56 +47,19 @@ export class GraphicAdvancedComponent implements OnInit {
       [1524178080000, 6717.9, 6718.9, 6705.1, 6705.1, 6709.3],
       [1524178140000, 6707.6, 6711.1, 6704.3, 6704.3, 6706.5]
     ];
-
-/*    console.log('Graphic Advanced instanciate');
-        require.ensure(['../../assets/stocks/index.js'], require => {
-          const yourModule = require('../../assets/stocks/index.js')(aapl);
-        });*/
+    // this.traceAdvancedChart(aapl);
   }
 
-  getChart() {
-    this.httpService.getCharts().subscribe(data => {
-      console.log(data);
-      this.data = data;
-    });
-    const highchartsReset3 = document.getElementById('highcharts-reset2');
-    highchartsReset3.addEventListener('click', function () {
-      console.log('ok');
-    });
+  traceAdvancedChart(table) {
+    setTimeout(() => {
+        this.isDisplay = true;
+        require('../../assets/stocks/index.js')(table);
+      }
+      , 2000);
   }
-  test(test) {
-    console.log('DOM loaded');
-    window.addEventListener('DOMContentLoaded', function () {
-      // require('../../assets/stocks/index.js');
-      require('../../assets/stocks/index.js')(test);
-    }, false);
-  }
-/*  test2(test) {
-    window.addEventListener('DOMContentLoaded', function () {
-      require.ensure(['../../assets/stocks/index.js'], require => {
-        const yourModule = require('../../assets/stocks/index.js')(test);
-      });
-    });
-  }*/
 
-  changeaapl() {
-    const aapl = [
-      [1524177780000, 6709.1, 6709.1, 6708.9, 6708.9, 6709.0],
-      [1524177840000, 6708.9, 6708.9, 6708.2, 6708.2, 6708.6],
-      [1524178020000, 6717.9, 6717.9, 6717.9, 6717.9, 6717.9],
-      [1524178140000, 6707.6, 6711.1, 6704.3, 6704.3, 6706.5],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524177960000, 6708.9, 6719.8, 6708.9, 6717.9, 6709.8],
-      [1524178080000, 6717.9, 6718.9, 6705.1, 6705.1, 6709.3],
-      [1524177900000, 6708.2, 6708.9, 6708.2, 6708.9, 6708.9]
-    ];
-    // this.test2(aapl);
+  destroyChart() {
+    this.isDisplay = false;
   }
 
   ngOnInit() {
