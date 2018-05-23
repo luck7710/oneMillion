@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {init} from 'protractor/built/launcher';
 import {setInterval} from 'timers';
+
 require('../../assets/stocks/indicators/indicators')(Highcharts);
 require('../../assets/stocks/indicators/ema')(Highcharts);
 require('../../assets/stocks/indicators/macd')(Highcharts);
@@ -24,6 +25,7 @@ require('../../assets/stocks/indicators/zigzag')(Highcharts);
 require('../../assets/stocks/graphic/annotations')(Highcharts);
 require('../../assets/stocks/graphic/data')(Highcharts);
 require('../../assets/stocks/graphic/drag-panes')(Highcharts);
+
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
@@ -32,7 +34,8 @@ require('../../assets/stocks/graphic/drag-panes')(Highcharts);
 export class GraphicComponent implements OnInit {
   options: Object;
   isDisplay = false;
-  private chart: any;
+  chartOptions: any;
+  table: any;
 
 
   constructor() {
@@ -40,10 +43,11 @@ export class GraphicComponent implements OnInit {
   }
 
 
-  public traceChart(table) {
+  public traceChart(table: any) {
+    this.table = table;
     console.log(table);
     this.isDisplay = true;
-    setTimeout( () =>  Highcharts.stockChart('container', {
+    this.chartOptions = {
 
       rangeSelector: {
         selected: 2
@@ -83,7 +87,7 @@ export class GraphicComponent implements OnInit {
       },
 
       series: [{
-        type: 'ohlc',
+        type: 'candlestick',
         id: 'aapl',
         name: 'AAPL Stock Price',
         data: table,
@@ -106,62 +110,84 @@ export class GraphicComponent implements OnInit {
         yAxis: 1,
         linkedTo: 'aapl'
       }]
-    }), 0);
-  }
-  destroyChart() {
-    this.isDisplay = false;
-  }
-  public traceBasicChart(table) {
-    this.options = {
-      title: {text: 'BTC Stock Price'},
+    };
+    setTimeout(() => Highcharts.stockChart('container',
+      this.chartOptions), 0);
 
-      rangeSelector: {
-        buttons: [{
-          type: 'hour',
-          count: 1,
-          text: '1h'
-        }, {
-          type: 'day',
-          count: 1,
-          text: '1D'
-        }, {
-          type: 'all',
-          count: 1,
-          text: 'All'
-        }],
-        selected: 1,
-        inputEnabled: false
+  }
+
+  public traceChartTest(table) {
+    console.log(table);
+    this.isDisplay = true;
+    const adv_options = {
+      title: {
+        useHTML: true,
+        x: -10,
+        y: 8,
+        text: '<span class="chart-title">SMA, EMA, ATR, RSI indicators <span class="chart-href"> <a href="http://www.blacklabel.pl/highcharts" target="_blank"> Black Label </a> </span> <span class="chart-subtitle">plugin by </span></span>'
+
       },
-
-      series: [{
-        name: 'BTC',
-        type: 'candlestick',
-        data: table,
-        // data: tabToTrace,
-        tooltip: {
-          valueDecimals: 4
+      indicators: [{
+        id: 'AAPL',
+        type: 'sma',
+        params: {
+          period: 14
+        }
+      },{
+        id: 'AAPL',
+        type: 'rsi',
+        params: {
+          period: 14,
+          overbought: 70,
+          oversold: 30
+        },
+        styles: {
+          strokeWidth: 2,
+          stroke: 'black',
+          dashstyle: 'solid'
+        },
+        yAxis: {
+          lineWidth: 2,
+          title: {
+            text: 'RSI'
+          }
+        }
+      }],
+      yAxis: {
+        opposite: false,
+        title: {
+          text: 'DATA SMA EMA',
+          x: -4
+        },
+        lineWidth: 2,
+        labels: {
+          x: 22
         }
       },
-        /*              {
-                        type: 'flags',
-                        name: 'Flags on series',
-                        data: [{
-                          x: lastDate,
-                          title: 'On series'
-                        }],
-                        onSeries: 'dataseries',
-                        shape: 'squarepin'
-                      }, {
-                        type: 'flags',
-                        name: 'Flags on axis',
-                        data: [{
-                          x: 1524660960,
-                          title: 'On axis'
-                        }],
-                        shape: 'squarepin'
-                      }*/
-      ]
+      rangeSelector: {
+        selected: 0
+      },
+      tooltip: {
+        enabledIndicators: true
+      },
+      series: [{
+        type: 'candlestick',
+        cropThreshold: 0,
+        id: 'AAPL',
+        name: 'AAPL',
+        data: table,
+        tooltip: {
+          valueDecimals: 2
+        }
+      }]
     };
+
+    setTimeout(() => Highcharts.stockChart('container', adv_options)
+      , 0);
+  }
+
+  destroyChart() {
+    this.isDisplay = false;
   }
 
   ngOnInit() {

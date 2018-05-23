@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
   displayGraphic(table) {
     this.destroyGraphic();
     setTimeout(() => {
-      this.graphicComponent.traceChart(table[0].chart);
+      this.graphicComponent.traceChartTest(table[0].chart);
     }, 0);
 
   }

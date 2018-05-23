@@ -32,8 +32,11 @@ export class ImportComponent implements OnInit {
   moyenne = 0;
   timeStamp = 0;
   numberTrades = 0;
+  badPoint = 0;
 
-  constructor(private dialog: MatDialog, private httpService: HttpService, private http: Http) { }
+  constructor(private dialog: MatDialog, private httpService: HttpService, private http: Http) {
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogImportComponent, {});
 
@@ -93,20 +96,21 @@ export class ImportComponent implements OnInit {
                   this.max = trade;
                 }
               }
-              if (result.result.last <= endDate && this.fixMaxRequest(2)) {
+              if (result.result.last <= endDate && this.fixMaxRequest(100)) {
                 // console.log(result.result.last, endDate, result.result.last <= endDate);
-                this.parseTradesToCandles(endDate, result.result.last, platformSelected, pairSelected);
+                setTimeout(() => this.parseTradesToCandles(endDate, result.result.last, platformSelected, pairSelected), 2000);
               } else {
-                this.saveChart(this.platformSelected, this.pairSelected, this.startDate, this.endDate, this.chart, this.fixMaxRequest(2));
+                this.saveChart(this.platformSelected, this.pairSelected, this.startDate, this.endDate, this.chart, this.fixMaxRequest(100));
                 return;
               }
             } else {
-              setTimeout(() => this.parseTradesToCandles(endDate, result.result.last, platformSelected, pairSelected), 2000);
+              console.log('Bad points: ' + this.badPoint++);
+              setTimeout(() => this.parseTradesToCandles(endDate, result.result.last, platformSelected, pairSelected), 10000);
             }
           }
         )
         .subscribe(result => {
-         // this.graphicComponent.traceChart(this.chart);
+          // this.graphicComponent.traceChart(this.chart);
         });
     }
   }
@@ -127,6 +131,7 @@ export class ImportComponent implements OnInit {
     // console.log(candle);
     return candle;
   }
+
   public fixMaxRequest(numberRequest: number): boolean {
     return (this.requestIncr < numberRequest);
   }
@@ -137,18 +142,19 @@ export class ImportComponent implements OnInit {
     this.http.post('/chart', table)
       .subscribe(res => {
           // const resId = JSON.parse(res['_body'])._id;
-        this.httpService.getCharts().subscribe(
-          data => {
-            this.displayTable.emit(data);
-          }, (err) => {
-            console.log(err);
-          }
-        );
+          this.httpService.getCharts().subscribe(
+            data => {
+              this.displayTable.emit(data);
+            }, (err) => {
+              console.log(err);
+            }
+          );
         }, (err) => {
           console.log(err);
         }
       );
   }
+
   ngOnInit() {
     console.log('Import init');
   }
