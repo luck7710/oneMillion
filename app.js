@@ -5,8 +5,11 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var book = require('./routes/Book');
 var chart = require('./routes/Chart');
+var kraken = require('./routes/Kraken');
 var app = express();
 var mongoose = require('mongoose');
+app.use(cors({origin: 'http://localhost:3000'}));
+app.options('*', cors({origin: 'http://localhost:3000'}));
 
 
 mongoose.Promise = require('bluebird');
@@ -14,14 +17,20 @@ mongoose.connect('mongodb://localhost/oneMillion', { promiseLibrary: require('bl
   .then(() =>  console.log('MongoDB connection succesful'))
   .catch((err) => console.error(err));
 
+
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(path.join(__dirname, 'dist')));
+
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.use('/books', express.static(path.join(__dirname, 'dist')));
 app.use('/book', book);
 app.use('/charts', express.static(path.join(__dirname, 'dist')));
 app.use('/chart', chart);
+app.use('/kraken', kraken);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

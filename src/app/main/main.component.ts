@@ -9,6 +9,11 @@ import {HttpService} from '../service/http.service';
 import {DynamicService} from '../service/dynamic.service';
 import {GraphicAdvancedComponent} from '../graphic-advanced/graphic-advanced.component';
 
+const Kraken = require('../../assets/kraken');
+import setimmediates from 'setimmediate';
+
+
+// const Kraken = require('kraken-api/kraken');
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -23,7 +28,9 @@ export class MainComponent implements OnInit {
   constructor(private httpService: HttpService, private elementRef: ElementRef, private dynamicService: DynamicService,
               private viewContainerRef: ViewContainerRef) {
     console.log('Main instatiation');
-
+/*    httpService.getKraken('Trades', 'XXBTZUSD', 1527450750803617824).subscribe( (result) => console.log(result));
+    httpService.getKraken('Trades', 'XXBTZUSD').subscribe( (result) => console.log(result));
+    httpService.getKraken('Trades').subscribe( (result) => console.log(result));*/
   }
 
   switchDisplay() {
@@ -51,10 +58,11 @@ export class MainComponent implements OnInit {
     }, 0);
 
   }
+
   destroyGraphic() {
     console.log('destroy');
     this.graphicComponent.destroyChart();
-    }
+  }
 
   someFuncAdd() {
     // const toto =  this.elementRef.nativeElement.querySelector('.hide');
