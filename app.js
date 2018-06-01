@@ -8,8 +8,9 @@ var chart = require('./routes/Chart');
 var kraken = require('./routes/Kraken');
 var app = express();
 var mongoose = require('mongoose');
-app.use(cors({origin: 'http://localhost:3000'}));
-app.options('*', cors({origin: 'http://localhost:3000'}));
+
+app.use(cors());
+app.options('*', cors());
 
 
 mongoose.Promise = require('bluebird');

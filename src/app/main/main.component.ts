@@ -1,5 +1,5 @@
 import {
-  Component, ElementRef, Inject,
+  Component, ElementRef,
   OnInit,
   ViewChild, ViewContainerRef
 } from '@angular/core';
@@ -8,12 +8,9 @@ import {GraphicComponent} from '../graphic/graphic.component';
 import {HttpService} from '../service/http.service';
 import {DynamicService} from '../service/dynamic.service';
 import {GraphicAdvancedComponent} from '../graphic-advanced/graphic-advanced.component';
-
-const Kraken = require('../../assets/kraken');
-import setimmediates from 'setimmediate';
+import {NgProgress} from 'ngx-progressbar';
 
 
-// const Kraken = require('kraken-api/kraken');
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -23,14 +20,23 @@ export class MainComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
   @ViewChild(GraphicComponent) graphicComponent: GraphicComponent;
   isDisplay = false;
-  public tableSelected: any;
+  isVisible = false;
+  tableSelected: any;
+  stateLoading: string;
 
   constructor(private httpService: HttpService, private elementRef: ElementRef, private dynamicService: DynamicService,
-              private viewContainerRef: ViewContainerRef) {
+              private viewContainerRef: ViewContainerRef, private ngProgress: NgProgress) {
     console.log('Main instatiation');
-/*    httpService.getKraken('Trades', 'XXBTZUSD', 1527450750803617824).subscribe( (result) => console.log(result));
-    httpService.getKraken('Trades', 'XXBTZUSD').subscribe( (result) => console.log(result));
-    httpService.getKraken('Trades').subscribe( (result) => console.log(result));*/
+  }
+
+  displayProgressBar(stateLoading: number) {
+    if (stateLoading >= 100) {
+      this.isVisible  = false;
+    }
+    if (stateLoading === 0) {
+      this.isVisible  = true;
+    }
+    this.stateLoading = stateLoading.toFixed(2);
   }
 
   switchDisplay() {

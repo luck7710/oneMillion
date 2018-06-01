@@ -15,13 +15,13 @@ import {HttpService} from '../service/http.service';
 export class ImportComponent implements OnInit {
   @ViewChild(GraphicComponent) graphicComponent: GraphicComponent;
   @Output() displayTable = new EventEmitter();
+  @Output() displayProgressBar = new EventEmitter();
 
   chart = [];
   endDate;
   startDate;
   platformSelected;
   pairSelected;
-  numberTradesTotal = 0;
   nextTimeStamp = 0;
   requestIncr = 0;
   // Candle attributes
@@ -32,7 +32,7 @@ export class ImportComponent implements OnInit {
   moyenne = 0;
   timeStamp = 0;
   numberTrades = 0;
-  badPoint = 0;
+  stateLoading = 0;
 
   constructor(private dialog: MatDialog, private httpService: HttpService, private http: Http) {
   }
@@ -42,8 +42,10 @@ export class ImportComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== null && result !== undefined) {
+        this.initChart();
         this.endDate = Math.round(result.endDate * 1000000);
         this.startDate = Math.round(result.startDate * 1000000);
+        this.stateLoading = this.endDate - this.startDate;
         this.platformSelected = result.platformSelected;
         this.pairSelected = result.pairSelected;
         this.parseTradesToCandles(this.endDate, this.startDate, this.platformSelected, this.pairSelected);
@@ -51,67 +53,60 @@ export class ImportComponent implements OnInit {
     });
   }
 
-  parseTradesToCandles(endDate: number, startDate: number, platformSelected: String, pairSelected: String): void {
+  parseTradesToCandles(endDate: number, startDate: number, platformSelected: String, pairSelected: string): void {
     if (platformSelected === 'Kraken') {
-      // console.log('https://api.kraken.com/0/public/Trades?pair=' + pairSelected + '&since=' + startDate);
-      this.http.get('https://api.kraken.com/0/public/Trades?pair=' + pairSelected + '&since=' + startDate)
-        .map(response => {
-            this.requestIncr++;
-            const result = response.json();
-            if (result.result.last !== null && result.result.last !== undefined) {
-              // console.log('________________requestINCR: ', this.requestIncr, ' resultlast: ', result.result.last);
-              for (let i = 0; result.result.XXBTZUSD.length > i; i++) {
-                this.numberTradesTotal++;
-                // console.log(this.numberTradesTotal);
-                const trade = result.result.XXBTZUSD[i][0];
-                const volume = result.result.XXBTZUSD[i][1];
-                const timeStamp = result.result.XXBTZUSD[i][2];
-
-                if (timeStamp >= this.nextTimeStamp && i > 1) {
-                  const candle = this.createCandle();
-                  const candleParse = [
-                    candle.getTimeStamp() * 1000,
-                    candle.getOpen(),
-                    candle.getMax(),
-                    candle.getMin(),
-                    candle.getClose()
-                  ].map(Number);
-                  this.chart.push(candleParse);
-                  this.initCandle();
-                }
-                this.numberTrades++;
-                this.timeStamp = timeStamp;
-                this.close = trade;
-                if (this.nextTimeStamp === 0) {
-                  this.open = trade;
-                  this.min = trade;
-                  this.max = trade;
-                  this.nextTimeStamp = timeStamp + 60;
-                  // console.log('timeStampOpen: ', timeStamp, 'nexTimeStamp: ', this.nextTimeStamp);
-                }
-                if (trade < this.min) {
-                  this.min = trade;
-                }
-                if (trade > this.max) {
-                  this.max = trade;
-                }
+      this.httpService.getKraken('Trades', pairSelected, startDate).subscribe(result => {
+          this.requestIncr++;
+          console.log(this.requestIncr);
+          if (result.last !== null && result.last !== undefined) {
+            for (let i = 0; result[this.pairSelected].length > i; i++) {
+              const trade = result[this.pairSelected][i][0];
+              const volume = result[this.pairSelected][i][1];
+              const timeStamp = result[this.pairSelected][i][2];
+              if (timeStamp >= this.nextTimeStamp && i > 1) {
+                const candle = this.createCandle();
+                const candleParse = [
+                  candle.getTimeStamp() * 1000,
+                  candle.getOpen(),
+                  candle.getMax(),
+                  candle.getMin(),
+                  candle.getClose()
+                ].map(Number);
+                this.chart.push(candleParse);
+                this.initCandle();
               }
-              if (result.result.last <= endDate && this.fixMaxRequest(100)) {
-                // console.log(result.result.last, endDate, result.result.last <= endDate);
-                setTimeout(() => this.parseTradesToCandles(endDate, result.result.last, platformSelected, pairSelected), 2000);
-              } else {
-                this.saveChart(this.platformSelected, this.pairSelected, this.startDate, this.endDate, this.chart, this.fixMaxRequest(100));
-                return;
+              this.numberTrades++;
+              this.timeStamp = timeStamp;
+              this.close = trade;
+              if (this.nextTimeStamp === 0) {
+                this.open = trade;
+                this.min = trade;
+                this.max = trade;
+                this.nextTimeStamp = timeStamp + 60;
               }
+              if (trade < this.min) {
+                this.min = trade;
+              }
+              if (trade > this.max) {
+                this.max = trade;
+              }
+            }
+            if (result.last <= endDate && this.fixMaxRequest(10)) {
+              console.log(result.last <= endDate);
+              console.log(this.startDate, startDate, this.endDate);
+              console.log(startDate - this.startDate, this.endDate - this.startDate);
+              this.stateLoading = (startDate - this.startDate) / (this.endDate - this.startDate);
+              this.displayProgressBar.emit(this.stateLoading * 100);
+              setTimeout(() => this.parseTradesToCandles(endDate, result.last, platformSelected, pairSelected), 5000);
+              // this.graphicComponent.traceChart(this.chart);
             } else {
-              console.log('Bad points: ' + this.badPoint++);
-              setTimeout(() => this.parseTradesToCandles(endDate, result.result.last, platformSelected, pairSelected), 10000);
+
+              this.saveChart(this.platformSelected, this.pairSelected, this.startDate, this.endDate, this.chart, this.fixMaxRequest(10));
+              return;
             }
           }
-        )
-        .subscribe(result => {
-          // this.graphicComponent.traceChart(this.chart);
-        });
+        }
+      );
     }
   }
 
@@ -124,6 +119,15 @@ export class ImportComponent implements OnInit {
     this.timeStamp = 0;
     this.nextTimeStamp = 0;
     this.numberTrades = 0;
+  }
+
+  public initChart(): void {
+    this.chart = [];
+    this.platformSelected = '';
+    this.pairSelected = '';
+    this.startDate = 0;
+    this.endDate = 0;
+    this.requestIncr = 0;
   }
 
   public createCandle(): Candle {
@@ -145,6 +149,7 @@ export class ImportComponent implements OnInit {
           this.httpService.getCharts().subscribe(
             data => {
               this.displayTable.emit(data);
+              this.initChart();
             }, (err) => {
               console.log(err);
             }

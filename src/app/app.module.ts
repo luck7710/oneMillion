@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgProgressModule} from 'ngx-progressbar';
+
 // import {ChartModule} from 'angular2-highcharts';
 import {RouterModule, Routes} from '@angular/router';
 import {TableData} from './TableData';
@@ -30,18 +32,17 @@ import {ChartComponent} from './chart/chart.component';
 import {BookDetailComponent} from './book-detail/book-detail.component';
 import {BookCreateComponent} from './book-create/book-create.component';
 import {BookEditComponent} from './book-edit/book-edit.component';
-import { MainComponent } from './main/main.component';
-import { HeaderComponent } from './header/header.component';
-import { ImportComponent } from './import/import.component';
-import { GraphicComponent } from './graphic/graphic.component';
+import {MainComponent} from './main/main.component';
+import {HeaderComponent} from './header/header.component';
+import {ImportComponent} from './import/import.component';
+import {GraphicComponent} from './graphic/graphic.component';
 import {HttpService} from './service/http.service';
 import {DynamicService} from './service/dynamic.service';
-import { TableComponent } from './table/table.component';
-import { BacktestingComponent } from './backtesting/backtesting.component';
-import { GraphicAdvancedComponent } from './graphic-advanced/graphic-advanced.component';
-import { DynamicComponent } from './dynamic/dynamic.component';
-
-
+import {TableComponent} from './table/table.component';
+import {BacktestingComponent} from './backtesting/backtesting.component';
+import {GraphicAdvancedComponent} from './graphic-advanced/graphic-advanced.component';
+import {DynamicComponent} from './dynamic/dynamic.component';
+import {ProgressBarModule} from 'primeng/progressbar';
 
 
 const appRoutes: Routes = [
@@ -115,6 +116,8 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     FormsModule,
     ReactiveFormsModule,
+    NgProgressModule,
+    ProgressBarModule,
     // ChartModule.forRoot(require('highcharts/highstock')),
     RouterModule.forRoot(
       appRoutes,
