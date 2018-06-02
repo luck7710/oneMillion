@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var book = require('./routes/Book');
 var chart = require('./routes/Chart');
+var asset = require('./routes/Asset');
 var kraken = require('./routes/Kraken');
 var app = express();
 var mongoose = require('mongoose');
@@ -31,6 +32,8 @@ app.use('/books', express.static(path.join(__dirname, 'dist')));
 app.use('/book', book);
 app.use('/charts', express.static(path.join(__dirname, 'dist')));
 app.use('/chart', chart);
+app.use('/assets', express.static(path.join(__dirname, 'dist')));
+app.use('/asset', asset);
 app.use('/kraken', kraken);
 
 // catch 404 and forward to error handler

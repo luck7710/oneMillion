@@ -1006,3 +1006,228 @@
 2018-06-01T00:06:07.814+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
 2018-06-01T00:06:08.753+0200 I STORAGE  [serviceShutdown] shutdown: removing fs lock...
 2018-06-01T00:06:08.763+0200 I CONTROL  [serviceShutdown] now exiting
+2018-06-01T17:46:49.316+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-06-01T17:46:49.652+0200 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] MongoDB starting : pid=14288 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] modules: none
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten] build environment:
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-06-01T17:46:49.653+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-06-01T17:46:49.654+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-06-01T17:46:49.654+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, service: true, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-06-01T17:46:49.655+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-06-01T17:46:50.037+0200 I STORAGE  [initandlisten] WiredTiger message [1527868010:37136][14288:140731875343440], txn-recover: Set global recovery timestamp: 0
+2018-06-01T17:46:50.448+0200 I CONTROL  [initandlisten] 
+2018-06-01T17:46:50.448+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-06-01T17:46:50.448+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-06-01T17:46:50.448+0200 I CONTROL  [initandlisten] 
+2018-06-01T17:46:50.449+0200 I CONTROL  [initandlisten] 
+2018-06-01T17:46:50.449+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-06-01T17:46:50.449+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-06-01T17:46:50.449+0200 I CONTROL  [initandlisten] 
+2018-06-01T17:46:50.449+0200 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 1cb77464-eecc-4d6a-a612-60db471f0bbc
+2018-06-01T17:46:50.609+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.6
+2018-06-01T17:46:50.615+0200 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: ecb56479-56eb-4e30-8dae-efa1fe7e66cd
+2018-06-01T17:46:53.078+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-06-01T17:46:53.078+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-06-01T17:46:53.079+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-06-01T17:46:53.080+0200 I STORAGE  [initandlisten] Service running
+2018-06-01T17:51:53.081+0200 I STORAGE  [thread1] createCollection: config.system.sessions with generated UUID: 03dec087-27ac-4753-87b5-7d804e332a4a
+2018-06-01T17:51:53.318+0200 I INDEX    [thread1] build index on: config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 }
+2018-06-01T17:51:53.318+0200 I INDEX    [thread1] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2018-06-01T17:51:53.353+0200 I INDEX    [thread1] build index done.  scanned 0 total records. 0 secs
+2018-06-01T17:51:53.370+0200 I COMMAND  [thread1] command config.$cmd command: createIndexes { createIndexes: "system.sessions", indexes: [ { key: { lastUse: 1 }, name: "lsidTTLIndex", expireAfterSeconds: 1800 } ], $db: "config" } numYields:0 reslen:98 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_msg 273ms
+2018-06-01T18:00:20.357+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56674 #1 (1 connection now open)
+2018-06-01T18:00:20.364+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:56674 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:01:31.447+0200 I NETWORK  [conn1] end connection 127.0.0.1:56674 (0 connections now open)
+2018-06-01T18:01:48.693+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56771 #2 (1 connection now open)
+2018-06-01T18:01:48.699+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:56771 conn2: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:03:20.993+0200 I STORAGE  [conn2] createCollection: oneMillion.charts with generated UUID: 85fa10a9-3db7-4948-bd21-bd0eb015795e
+2018-06-01T18:03:21.382+0200 I COMMAND  [conn2] command oneMillion.charts command: insert { insert: "charts", ordered: false, lsid: { id: UUID("f02a44cd-6d81-493f-8aa1-7848d8ca928d") }, $db: "oneMillion" } ninserted:1 keysInserted:1 numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 5, w: 3 } }, Database: { acquireCount: { r: 1, w: 2, W: 1 } }, Collection: { acquireCount: { r: 1, w: 2 } } } protocol:op_query 392ms
+2018-06-01T18:03:22.421+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56928 #3 (2 connections now open)
+2018-06-01T18:04:35.353+0200 I NETWORK  [conn2] end connection 127.0.0.1:56771 (1 connection now open)
+2018-06-01T18:04:35.353+0200 I NETWORK  [conn3] end connection 127.0.0.1:56928 (0 connections now open)
+2018-06-01T18:04:52.341+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57172 #4 (1 connection now open)
+2018-06-01T18:04:52.351+0200 I NETWORK  [conn4] received client metadata from 127.0.0.1:57172 conn4: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:05:00.553+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:57191 #5 (2 connections now open)
+2018-06-01T18:44:28.433+0200 I NETWORK  [conn5] end connection 127.0.0.1:57191 (1 connection now open)
+2018-06-01T18:44:28.433+0200 I NETWORK  [conn4] end connection 127.0.0.1:57172 (0 connections now open)
+2018-06-01T18:44:44.168+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60714 #6 (1 connection now open)
+2018-06-01T18:44:44.177+0200 I NETWORK  [conn6] received client metadata from 127.0.0.1:60714 conn6: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:45:04.699+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60749 #7 (2 connections now open)
+2018-06-01T18:45:06.741+0200 I COMMAND  [conn6] command oneMillion.charts command: findAndModify { findandmodify: "charts", query: { _id: ObjectId('5b116e486def244ab8e5b2c3') }, new: false, remove: true, upsert: false, fields: {}, lsid: { id: UUID("18807d0a-ec3f-49f1-b96e-fe2818df85e8") }, $db: "oneMillion" } planSummary: IDHACK keysExamined:1 docsExamined:1 ndeleted:1 keysDeleted:1 numYields:0 reslen:40353 locks:{ Global: { acquireCount: { r: 3, w: 1 } }, Database: { acquireCount: { r: 1, w: 1 } }, Collection: { acquireCount: { r: 1, w: 1 } } } protocol:op_query 133ms
+2018-06-01T18:47:14.968+0200 I NETWORK  [conn7] end connection 127.0.0.1:60749 (1 connection now open)
+2018-06-01T18:47:14.968+0200 I NETWORK  [conn6] end connection 127.0.0.1:60714 (0 connections now open)
+2018-06-01T18:47:29.860+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60955 #8 (1 connection now open)
+2018-06-01T18:47:29.869+0200 I NETWORK  [conn8] received client metadata from 127.0.0.1:60955 conn8: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:47:42.816+0200 I NETWORK  [conn8] end connection 127.0.0.1:60955 (0 connections now open)
+2018-06-01T18:47:57.745+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:60996 #9 (1 connection now open)
+2018-06-01T18:47:57.750+0200 I NETWORK  [conn9] received client metadata from 127.0.0.1:60996 conn9: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:49:03.728+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61113 #10 (2 connections now open)
+2018-06-01T18:51:45.273+0200 I NETWORK  [conn9] end connection 127.0.0.1:60996 (1 connection now open)
+2018-06-01T18:51:45.273+0200 I NETWORK  [conn10] end connection 127.0.0.1:61113 (0 connections now open)
+2018-06-01T18:52:01.180+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61359 #11 (1 connection now open)
+2018-06-01T18:52:01.190+0200 I NETWORK  [conn11] received client metadata from 127.0.0.1:61359 conn11: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:52:08.297+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61376 #12 (2 connections now open)
+2018-06-01T18:54:50.294+0200 I NETWORK  [conn11] end connection 127.0.0.1:61359 (1 connection now open)
+2018-06-01T18:54:50.294+0200 I NETWORK  [conn12] end connection 127.0.0.1:61376 (0 connections now open)
+2018-06-01T18:55:05.915+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61622 #13 (1 connection now open)
+2018-06-01T18:55:05.923+0200 I NETWORK  [conn13] received client metadata from 127.0.0.1:61622 conn13: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T18:59:05.073+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:61976 #14 (2 connections now open)
+2018-06-01T19:01:24.922+0200 I NETWORK  [conn13] end connection 127.0.0.1:61622 (1 connection now open)
+2018-06-01T19:01:24.922+0200 I NETWORK  [conn14] end connection 127.0.0.1:61976 (0 connections now open)
+2018-06-01T19:01:40.911+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62193 #15 (1 connection now open)
+2018-06-01T19:01:40.916+0200 I NETWORK  [conn15] received client metadata from 127.0.0.1:62193 conn15: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:01:45.318+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62208 #16 (2 connections now open)
+2018-06-01T19:08:13.830+0200 I NETWORK  [conn16] end connection 127.0.0.1:62208 (1 connection now open)
+2018-06-01T19:08:13.830+0200 I NETWORK  [conn15] end connection 127.0.0.1:62193 (0 connections now open)
+2018-06-01T19:08:29.897+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62811 #17 (1 connection now open)
+2018-06-01T19:08:29.906+0200 I NETWORK  [conn17] received client metadata from 127.0.0.1:62811 conn17: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:08:39.040+0200 I NETWORK  [conn17] end connection 127.0.0.1:62811 (0 connections now open)
+2018-06-01T19:08:54.526+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62847 #18 (1 connection now open)
+2018-06-01T19:08:54.535+0200 I NETWORK  [conn18] received client metadata from 127.0.0.1:62847 conn18: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:08:57.505+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:62861 #19 (2 connections now open)
+2018-06-01T19:12:45.780+0200 I NETWORK  [conn18] end connection 127.0.0.1:62847 (1 connection now open)
+2018-06-01T19:12:45.780+0200 I NETWORK  [conn19] end connection 127.0.0.1:62861 (0 connections now open)
+2018-06-01T19:13:02.528+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:63206 #20 (1 connection now open)
+2018-06-01T19:13:02.533+0200 I NETWORK  [conn20] received client metadata from 127.0.0.1:63206 conn20: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:13:05.522+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:63219 #21 (2 connections now open)
+2018-06-01T19:15:21.012+0200 I NETWORK  [conn21] end connection 127.0.0.1:63219 (0 connections now open)
+2018-06-01T19:15:21.012+0200 I NETWORK  [conn20] end connection 127.0.0.1:63206 (1 connection now open)
+2018-06-01T19:15:36.366+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:63454 #22 (1 connection now open)
+2018-06-01T19:15:36.372+0200 I NETWORK  [conn22] received client metadata from 127.0.0.1:63454 conn22: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:16:01.512+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:63508 #23 (2 connections now open)
+2018-06-01T19:22:48.433+0200 I NETWORK  [conn22] end connection 127.0.0.1:63454 (1 connection now open)
+2018-06-01T19:22:48.433+0200 I NETWORK  [conn23] end connection 127.0.0.1:63508 (0 connections now open)
+2018-06-01T19:23:43.515+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:64159 #24 (1 connection now open)
+2018-06-01T19:23:43.524+0200 I NETWORK  [conn24] received client metadata from 127.0.0.1:64159 conn24: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:24:27.331+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:64230 #25 (2 connections now open)
+2018-06-01T19:33:34.210+0200 W FTDC     [ftdc] Uncaught exception in 'FileRenameFailed: Le processus ne peut pas accéder au fichier car ce fichier est utilisé par un autre processus' in full-time diagnostic data capture subsystem. Shutting down the full-time diagnostic data capture subsystem.
+2018-06-01T19:34:37.390+0200 I NETWORK  [conn25] end connection 127.0.0.1:64230 (1 connection now open)
+2018-06-01T19:34:37.390+0200 I NETWORK  [conn24] end connection 127.0.0.1:64159 (0 connections now open)
+2018-06-01T19:35:48.385+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:65222 #26 (1 connection now open)
+2018-06-01T19:35:48.395+0200 I NETWORK  [conn26] received client metadata from 127.0.0.1:65222 conn26: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:35:57.405+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:65243 #27 (2 connections now open)
+2018-06-01T19:38:10.665+0200 I NETWORK  [conn26] end connection 127.0.0.1:65222 (1 connection now open)
+2018-06-01T19:38:10.665+0200 I NETWORK  [conn27] end connection 127.0.0.1:65243 (0 connections now open)
+2018-06-01T19:38:25.929+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:65458 #28 (1 connection now open)
+2018-06-01T19:38:25.940+0200 I NETWORK  [conn28] received client metadata from 127.0.0.1:65458 conn28: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:38:30.875+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:65475 #29 (2 connections now open)
+2018-06-01T19:40:13.009+0200 I NETWORK  [conn28] end connection 127.0.0.1:65458 (1 connection now open)
+2018-06-01T19:40:13.010+0200 I NETWORK  [conn29] end connection 127.0.0.1:65475 (0 connections now open)
+2018-06-01T19:40:28.560+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:49278 #30 (1 connection now open)
+2018-06-01T19:40:28.571+0200 I NETWORK  [conn30] received client metadata from 127.0.0.1:49278 conn30: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:40:40.152+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:49301 #31 (2 connections now open)
+2018-06-01T19:45:46.702+0200 I NETWORK  [conn30] end connection 127.0.0.1:49278 (0 connections now open)
+2018-06-01T19:45:46.702+0200 I NETWORK  [conn31] end connection 127.0.0.1:49301 (1 connection now open)
+2018-06-01T19:46:24.479+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:49801 #32 (1 connection now open)
+2018-06-01T19:46:24.483+0200 I NETWORK  [conn32] received client metadata from 127.0.0.1:49801 conn32: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:46:31.312+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:49822 #33 (2 connections now open)
+2018-06-01T19:49:13.180+0200 I NETWORK  [conn32] end connection 127.0.0.1:49801 (1 connection now open)
+2018-06-01T19:49:13.180+0200 I NETWORK  [conn33] end connection 127.0.0.1:49822 (0 connections now open)
+2018-06-01T19:49:29.037+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50079 #34 (1 connection now open)
+2018-06-01T19:49:29.047+0200 I NETWORK  [conn34] received client metadata from 127.0.0.1:50079 conn34: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:50:12.613+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50147 #35 (2 connections now open)
+2018-06-01T19:53:32.791+0200 I NETWORK  [conn34] end connection 127.0.0.1:50079 (1 connection now open)
+2018-06-01T19:53:32.791+0200 I NETWORK  [conn35] end connection 127.0.0.1:50147 (0 connections now open)
+2018-06-01T19:53:48.019+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50460 #36 (1 connection now open)
+2018-06-01T19:53:48.029+0200 I NETWORK  [conn36] received client metadata from 127.0.0.1:50460 conn36: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:54:04.256+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50493 #37 (2 connections now open)
+2018-06-01T19:58:17.891+0200 I NETWORK  [conn36] end connection 127.0.0.1:50460 (1 connection now open)
+2018-06-01T19:58:17.891+0200 I NETWORK  [conn37] end connection 127.0.0.1:50493 (0 connections now open)
+2018-06-01T19:58:33.273+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50929 #38 (1 connection now open)
+2018-06-01T19:58:33.285+0200 I NETWORK  [conn38] received client metadata from 127.0.0.1:50929 conn38: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-01T19:58:44.471+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:50951 #39 (2 connections now open)
+2018-06-01T22:58:59.214+0200 I NETWORK  [conn38] end connection 127.0.0.1:50929 (1 connection now open)
+2018-06-01T23:00:39.720+0200 I NETWORK  [conn39] end connection 127.0.0.1:50951 (0 connections now open)
+2018-06-01T23:00:40.756+0200 I CONTROL  [serviceShutdown] got SERVICE_CONTROL_STOP request from Windows Service Control Manager, will terminate after current cmd ends
+2018-06-01T23:00:40.756+0200 I NETWORK  [serviceShutdown] shutdown: going to close listening sockets...
+2018-06-01T23:00:40.790+0200 F CONTROL  [thread1] Encountered an error in PeriodicRunnerASIO: L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.
+2018-06-01T23:00:40.790+0200 F CONTROL  [thread1] Encountered an error in PeriodicRunnerASIO: L’opération d’entrée/sortie a été abandonnée en raison de l’arrêt d’un thread ou à la demande d’une application.
+2018-06-01T23:00:41.364+0200 I FTDC     [serviceShutdown] Shutting down full-time diagnostic data capture
+2018-06-01T23:00:44.218+0200 I STORAGE  [serviceShutdown] WiredTigerKVEngine shutting down
+2018-06-01T23:00:44.954+0200 E STORAGE  [WTCheckpointThread] WiredTiger error (13) [1527886844:954300][14288:140731875343440], file:WiredTiger.wt, WT_SESSION.checkpoint: C:\Users\luck7\Desktop\oneMillion\mongodb\db\WiredTiger.turtle.set to C:\Users\luck7\Desktop\oneMillion\mongodb\db\WiredTiger.turtle: file-rename: MoveFileExW: Accès refusé.
+: Permission denied
+2018-06-01T23:00:45.090+0200 E STORAGE  [WTCheckpointThread] WiredTiger error (0) [1527886845:90931][14288:140731875343440], file:WiredTiger.wt, WT_SESSION.checkpoint: WiredTiger.turtle: encountered an illegal file format or internal value: (__wt_turtle_update, 337)
+2018-06-01T23:00:45.091+0200 E STORAGE  [WTCheckpointThread] WiredTiger error (-31804) [1527886845:90931][14288:140731875343440], file:WiredTiger.wt, WT_SESSION.checkpoint: the process must exit and restart: WT_PANIC: WiredTiger library panic
+2018-06-01T23:00:45.137+0200 F -        [WTCheckpointThread] Fatal Assertion 28558 at src\mongo\db\storage\wiredtiger\wiredtiger_util.cpp 361
+2018-06-01T23:00:45.137+0200 F -        [WTCheckpointThread] 
+
+***aborting after fassert() failure
+
+
+2018-06-01T23:00:45.196+0200 E STORAGE  [thread41] WiredTiger error (-31804) [1527886845:196786][14288:140731875343440], log-server: log server error: WT_PANIC: WiredTiger library panic
+2018-06-01T23:00:45.197+0200 F -        [thread41] Fatal Assertion 28558 at src\mongo\db\storage\wiredtiger\wiredtiger_util.cpp 361
+2018-06-01T23:00:45.197+0200 F -        [thread41] 
+
+***aborting after fassert() failure
+
+
+2018-06-02T08:29:00.640+0200 I CONTROL  [main] ***** SERVER RESTARTED *****
+2018-06-02T08:29:01.017+0200 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] MongoDB starting : pid=21328 port=27017 dbpath=C:\Users\luck7\Desktop\oneMillion\mongodb\db 64-bit host=DESKTOP-FQAM2M3
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] db version v3.6.4
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] modules: none
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] build environment:
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-06-02T08:29:01.018+0200 I CONTROL  [initandlisten] options: { config: "C:\Users\luck7\Desktop\oneMillion\mongodb\mongodb.config", net: { bindIp: "127.0.0.1", port: 27017 }, service: true, storage: { dbPath: "C:\Users\luck7\Desktop\oneMillion\mongodb\db", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "C:\Users\luck7\Desktop\oneMillion\mongodb\log\mongodb.log" } }
+2018-06-02T08:29:01.038+0200 W -        [initandlisten] Detected unclean shutdown - C:\Users\luck7\Desktop\oneMillion\mongodb\db\mongod.lock is not empty.
+2018-06-02T08:29:01.038+0200 I -        [initandlisten] Detected data files in C:\Users\luck7\Desktop\oneMillion\mongodb\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-06-02T08:29:01.039+0200 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2018-06-02T08:29:01.039+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3548M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-06-02T08:29:01.385+0200 I STORAGE  [initandlisten] WiredTiger message [1527920941:385049][21328:140731875343440], txn-recover: Main recovery loop: starting at 1/332416
+2018-06-02T08:29:01.403+0200 I STORAGE  [initandlisten] WiredTiger message [1527920941:403145][21328:140731875343440], txn-recover: Recovering log 1 through 2
+2018-06-02T08:29:01.525+0200 I STORAGE  [initandlisten] WiredTiger message [1527920941:525085][21328:140731875343440], txn-recover: Recovering log 2 through 2
+2018-06-02T08:29:01.713+0200 I STORAGE  [initandlisten] WiredTiger message [1527920941:713357][21328:140731875343440], txn-recover: Set global recovery timestamp: 0
+2018-06-02T08:29:02.121+0200 I CONTROL  [initandlisten] 
+2018-06-02T08:29:02.122+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-06-02T08:29:02.122+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-06-02T08:29:02.122+0200 I CONTROL  [initandlisten] 
+2018-06-02T08:29:02.122+0200 I CONTROL  [initandlisten] 
+2018-06-02T08:29:02.122+0200 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-06-02T08:29:02.122+0200 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-06-02T08:29:02.123+0200 I CONTROL  [initandlisten] 
+2018-06-02T08:29:03.519+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Lâ€™objet spÃ©cifiÃ© nâ€™a pas Ã©tÃ© trouvÃ© sur lâ€™ordinateur.' for counter '\Memory\Available Bytes'
+2018-06-02T08:29:03.519+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/luck7/Desktop/oneMillion/mongodb/db/diagnostic.data'
+2018-06-02T08:29:03.520+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-06-02T08:29:03.520+0200 I STORAGE  [initandlisten] Service running
+2018-06-02T09:37:36.626+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55992 #1 (1 connection now open)
+2018-06-02T09:37:36.654+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:55992 conn1: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-02T09:37:38.875+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:55997 #2 (2 connections now open)
+2018-06-02T09:40:44.222+0200 I NETWORK  [conn2] end connection 127.0.0.1:55997 (0 connections now open)
+2018-06-02T09:40:44.222+0200 I NETWORK  [conn1] end connection 127.0.0.1:55992 (1 connection now open)
+2018-06-02T09:41:01.219+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56276 #3 (1 connection now open)
+2018-06-02T09:41:01.229+0200 I NETWORK  [conn3] received client metadata from 127.0.0.1:56276 conn3: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-02T09:41:08.667+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:56295 #4 (2 connections now open)
+2018-06-02T10:05:06.532+0200 I NETWORK  [conn3] end connection 127.0.0.1:56276 (1 connection now open)
+2018-06-02T10:05:06.532+0200 I NETWORK  [conn4] end connection 127.0.0.1:56295 (0 connections now open)
+2018-06-02T10:05:23.007+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58274 #5 (1 connection now open)
+2018-06-02T10:05:23.017+0200 I NETWORK  [conn5] received client metadata from 127.0.0.1:58274 conn5: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-02T10:05:30.415+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58291 #6 (2 connections now open)
+2018-06-02T10:07:01.480+0200 I STORAGE  [conn5] createCollection: oneMillion.assets with generated UUID: 74f2d718-7edf-4cd3-a379-088f3ffcd7f7
+2018-06-02T10:07:01.791+0200 I COMMAND  [conn5] command oneMillion.assets command: insert { insert: "assets", ordered: false, lsid: { id: UUID("55f5011d-59ef-457f-8268-1d73fcabee62") }, $db: "oneMillion" } ninserted:1 keysInserted:1 numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 5, w: 3 } }, Database: { acquireCount: { r: 1, w: 2, W: 1 } }, Collection: { acquireCount: { r: 1, w: 2 } } } protocol:op_query 304ms
+2018-06-02T10:07:49.295+0200 I NETWORK  [conn6] end connection 127.0.0.1:58291 (1 connection now open)
+2018-06-02T10:07:49.295+0200 I NETWORK  [conn5] end connection 127.0.0.1:58274 (0 connections now open)
+2018-06-02T10:08:05.136+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58512 #7 (1 connection now open)
+2018-06-02T10:08:05.143+0200 I NETWORK  [conn7] received client metadata from 127.0.0.1:58512 conn7: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.11.1, LE, mongodb-core: 3.0.7" }
+2018-06-02T10:08:12.751+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58531 #8 (2 connections now open)
+2018-06-02T10:09:42.062+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58666 #9 (3 connections now open)
+2018-06-02T10:09:42.072+0200 I NETWORK  [conn9] received client metadata from 127.0.0.1:58666 conn9: { driver: { name: "nodejs", version: "3.0.7" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "10.0.17134" }, platform: "Node.js v8.2.1, LE, mongodb-core: 3.0.7", application: { name: "MongoDB Compass Community" } }
+2018-06-02T10:09:43.312+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58668 #10 (4 connections now open)
+2018-06-02T10:09:44.321+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58672 #11 (5 connections now open)
+2018-06-02T10:09:44.442+0200 I COMMAND  [conn11] command admin.$cmd command: listDatabases { listDatabases: 1, lsid: { id: UUID("1d6128a1-7544-4b25-8d93-f828c9b33788") }, $db: "admin" } numYields:0 reslen:286 locks:{ Global: { acquireCount: { r: 10 } }, Database: { acquireCount: { r: 4 } } } protocol:op_query 119ms
+2018-06-02T10:09:45.326+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58676 #12 (6 connections now open)
+2018-06-02T10:09:46.331+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:58678 #13 (7 connections now open)
+2018-06-02T10:09:54.973+0200 I COMMAND  [conn11] command oneMillion.assets command: aggregate { aggregate: "assets", pipeline: [ { $indexStats: {} }, { $project: { name: 1, usageHost: "$host", usageCount: "$accesses.ops", usageSince: "$accesses.since" } } ], cursor: {}, lsid: { id: UUID("0f10be98-afb4-48e2-95fe-b39b419b2b3d") }, $db: "oneMillion" } keysExamined:0 docsExamined:0 cursorExhausted:1 numYields:0 nreturned:1 reslen:205 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 149ms
+2018-06-02T10:09:54.973+0200 I COMMAND  [conn12] command oneMillion.assets command: aggregate { aggregate: "assets", pipeline: [ { $indexStats: {} }, { $project: { name: 1, usageHost: "$host", usageCount: "$accesses.ops", usageSince: "$accesses.since" } } ], cursor: {}, lsid: { id: UUID("28e1d274-c5be-49f6-a26d-0213c827d732") }, $db: "oneMillion" } keysExamined:0 docsExamined:0 cursorExhausted:1 numYields:0 nreturned:1 reslen:205 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 149ms

@@ -11,12 +11,39 @@ export class HttpService {
     return this.http.get('/chart/').map((res) => res.json());
   }
 
+  updateChart(id, data) {
+    return this.http.put('/chart/' + id, data).map((res) => res.json);
+  }
+
+  deleteChart(id) {
+    return this.http.delete('/chart/' + id);
+  }
+
+  getAssets() {
+    return this.http.get('/assets/').map((res) => res.json());
+  }
+  getAssetsByID(id) {
+    return this.http.get('/assets/' + id).map((res) => res.json());
+  }
+
+  updateAsset(id, data) {
+    return this.http.put('/asset/' + id, data).map((res) => res.json);
+  }
+
+  deleteAsset(id) {
+    return this.http.delete('/asset/' + id);
+  }
+  saveAsset(asset) {
+    return this.http.post('/asset', asset);
+  }
+
+
   getKraken(method: string, pair?: string, since?: number) {
     if (pair !== null && pair !== undefined) {
       if (since !== null && since !== undefined) {
         return this.http.get('/kraken/' + method + '?pair=' + pair + '&since=' + since).map((res) => res.json());
       } else {
-        return this.http.get('/kraken/' + method + '?pair=' + pair + '&since=0' ).map((res) => res.json());
+        return this.http.get('/kraken/' + method + '?pair=' + pair + '&since=0').map((res) => res.json());
       }
     } else {
       return this.http.get('/kraken/' + method).map((res) => res.json());

@@ -91,7 +91,7 @@ export class ImportComponent implements OnInit {
                 this.max = trade;
               }
             }
-            if (result.last <= endDate && this.fixMaxRequest(10)) {
+            if (result.last <= endDate && this.fixMaxRequest(1)) {
               console.log(result.last <= endDate);
               console.log(this.startDate, startDate, this.endDate);
               console.log(startDate - this.startDate, this.endDate - this.startDate);
@@ -100,7 +100,8 @@ export class ImportComponent implements OnInit {
               setTimeout(() => this.parseTradesToCandles(endDate, result.last, platformSelected, pairSelected), 5000);
               // this.graphicComponent.traceChart(this.chart);
             } else {
-
+              this.stateLoading = 100;
+              this.displayProgressBar.emit(this.stateLoading);
               this.saveChart(this.platformSelected, this.pairSelected, this.startDate, this.endDate, this.chart, this.fixMaxRequest(10));
               return;
             }

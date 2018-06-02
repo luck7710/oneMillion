@@ -43,14 +43,36 @@ export class MainComponent implements OnInit {
     this.isDisplay = !this.isDisplay;
   }
 
-  displayTable(table) {
+  updateTable(table) {
     this.tableComponent.tableDisplay(table);
   }
+  deleteTable() {
+    this.tableComponent.deleteSuccess();
+  }
 
-  getTable() {
+  getCharts() {
     this.httpService.getCharts().subscribe(
       data => {
-        this.displayTable(data);
+        this.updateTable(data);
+      }, (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  updateChart(idChart: string, chartUpdate) {
+    this.httpService.updateChart(idChart, chartUpdate).subscribe(
+      data => {
+        this.updateTable(data);
+      }, (err) => {
+        console.log(err);
+      }
+    );
+  }
+  deleteChart(idChart: string) {
+    this.httpService.deleteChart(idChart).subscribe(
+      data => {
+        this.deleteTable();
       }, (err) => {
         console.log(err);
       }
@@ -92,13 +114,13 @@ export class MainComponent implements OnInit {
     this.dynamicService.removeDynamicComponent();
   }
 
-  display() {
+  displayChart() {
     this.isDisplay = !this.isDisplay;
   }
 
   ngOnInit() {
     console.log('Main init');
-    this.getTable();
+    this.getCharts();
   }
 
 }

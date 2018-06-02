@@ -1,7 +1,8 @@
 <p-progressBar *ngIf="isVisible" [value]="stateLoading"></p-progressBar>
 <app-header></app-header>
-<app-import (displayProgressBar)="displayProgressBar($event)" (displayTable)="displayTable($event)"></app-import>
+<app-import (displayProgressBar)="displayProgressBar($event)" (displayTable)="displayChart($event)"></app-import>
 <app-backtesting *ngIf="false"></app-backtesting>
-<app-table (tableSelected)="displayGraphic($event)"></app-table>
+<app-table (tableSelected)="displayGraphic($event)"
+           (deleteChartSelected)="deleteChart($event)"></app-table>
 <button mat-raised-button color="primary" (click)="destroyGraphic()">DESTROY</button>
 <app-graphic></app-graphic>

@@ -26,6 +26,17 @@
       </ng-container>
 
       <!-- ID Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Actions</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <i class="fa fa-minus" (click)="deleteChart(row)" aria-hidden="true"></i>
+          &nbsp;
+          &nbsp;
+          <i class="fa fa-pencil" (click)="updateChart(row._id)" aria-hidden="true"></i>
+        </mat-cell>
+      </ng-container>
+      <!-- ID Column -->
+
       <ng-container matColumnDef="platform">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Platform</mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.platform}}</mat-cell>

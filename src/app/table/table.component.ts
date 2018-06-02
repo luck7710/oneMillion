@@ -1,10 +1,10 @@
-import {Component, Input, OnInit, Output, ViewChild,EventEmitter} from '@angular/core';
+import {Component, Input, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {TableData} from '../TableData';
 import {SelectionModel} from '@angular/cdk/collections';
 
 
-const DEFAULT_COLUMNS = [ 'platform', 'pair', 'startDate', 'endDate', 'numberCandles', 'isAllImported', 'importDate'];
+const DEFAULT_COLUMNS = ['actions', 'platform', 'pair', 'startDate', 'endDate', 'numberCandles', 'isAllImported', 'importDate'];
 
 @Component({
   selector: 'app-table',
@@ -16,10 +16,12 @@ export class TableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @Input() table;
   @Output() tableSelected = new EventEmitter();
+  @Output() deleteChartSelected = new EventEmitter();
   displayedColumns = DEFAULT_COLUMNS;
   tableIsAvalaible = false;
   dataSource: MatTableDataSource<TableData>;
   selection = new SelectionModel<TableData>(true, []);
+  chartToDelete = [];
 
   constructor() {
   }
@@ -30,6 +32,17 @@ export class TableComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.tableIsAvalaible = true;
+  }
+
+  deleteSuccess() {
+    for (const data of this.dataSource.data) {
+      if (data === this.chartToDelete) {
+        this.chartToDelete = [];
+        const index = this.dataSource.data.indexOf(data);
+        this.tableDisplay(this.dataSource.data.splice(index, 1));
+        break;
+      }
+    }
   }
 
   applyFilter(filterValue: string) {
@@ -59,6 +72,16 @@ export class TableComponent implements OnInit {
 
   getSelectionCamera(): TableData[] {
     return this.selection.selected;
+  }
+
+  updateChart(idChart: string) {
+    alert('coming soon !');
+  }
+
+  deleteChart(row) {
+    console.log(row._id);
+    this.chartToDelete = row;
+    this.deleteChartSelected.emit(row._id);
   }
 
   ngOnInit() {

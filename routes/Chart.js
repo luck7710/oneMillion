@@ -37,10 +37,20 @@ router.put('/:id', function(req, res, next) {
 
 /* DELETE CHART */
 router.delete('/:id', function(req, res, next) {
-  Book.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Chart.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
+});
+
+/* UPDATE BOOK */
+router.put('/:id', function(req, res, next) {
+  Chart.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    Chart.find(function (err, products) {
+      if (err) return next(err);
+      return res.json(products);
+    });  });
 });
 
 module.exports = router;
