@@ -43,6 +43,7 @@ import {BacktestingComponent} from './backtesting/backtesting.component';
 import {GraphicAdvancedComponent} from './graphic-advanced/graphic-advanced.component';
 import {DynamicComponent} from './dynamic/dynamic.component';
 import {ProgressBarModule} from 'primeng/progressbar';
+import { DialogStrategyComponent } from './dialog-strategy/dialog-strategy.component';
 
 
 const appRoutes: Routes = [
@@ -95,6 +96,7 @@ const appRoutes: Routes = [
     BacktestingComponent,
     GraphicAdvancedComponent,
     DynamicComponent,
+    DialogStrategyComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,7 +125,7 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: true} // <-- debugging purposes only
     )],
-  entryComponents: [DialogImportComponent, DynamicComponent],
+  entryComponents: [DialogImportComponent, DialogStrategyComponent, DynamicComponent],
   providers: [HttpService, DynamicService],
   bootstrap: [AppComponent]
 })

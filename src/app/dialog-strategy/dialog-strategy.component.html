@@ -1,0 +1,82 @@
+<h5>Strategy</h5>
+
+<mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+
+      <ng-template matStepLabel>Select your Indicator</ng-template>
+
+      <mat-form-field>
+        <mat-select matInput placeholder="indicator"  formControlName="indicatorSelected" required>
+          <mat-option value="RSI">RSI</mat-option>
+          <mat-option value="MACD">MACD</mat-option>
+          <mat-option value="STOCHRSI">STOCHRSI</mat-option>
+          <mat-option value="CCI">CCI</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button  mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+
+      <ng-template  matStepLabel>Select your configuration</ng-template>
+
+      <!--<mat-form-field>-->
+        <!--<mat-select matInput placeholder="Base Asset" formControlName="currencyNumerator" required>-->
+          <!--<mat-option *ngFor="let currency of currencies" value={{currency}} (click)="switchDisabledSelect(false, currency)">-->
+            <!--{{currency}}-->
+          <!--</mat-option>-->
+        <!--</mat-select>-->
+      <!--</mat-form-field>-->
+      <!--<i class="fa fa-long-arrow-right" aria-hidden="true"></i>-->
+      <!--<mat-form-field>-->
+        <!--<mat-select matInput placeholder= {{PlaceholderDynamic}}  formControlName="pairSelected" required>-->
+          <!--<mat-option *ngFor="let pair of pairs"  value={{pair}}>-->
+            <!--{{pair}}-->
+          <!--</mat-option>-->
+        <!--</mat-select>-->
+      <!--</mat-form-field>-->
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>choose your data</ng-template>
+      <app-table (tableSelected)="updateData($event)"> </app-table>
+      <!--<mat-form-field>-->
+        <!--<input matInput [matDatepickerFilter]="startDateFilter" [matDatepicker]="picker"-->
+               <!--placeholder="Choose a start date " formControlName="startDate" required>-->
+        <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+        <!--<mat-datepicker #picker startView="year"></mat-datepicker>-->
+      <!--</mat-form-field>-->
+      <!--<div>To</div>-->
+      <!--<mat-form-field>-->
+        <!--<input matInput [matDatepickerFilter]="endDateFilter" [matDatepicker]="picker2" placeholder="Choose an end date"-->
+               <!--formControlName="endDate" required>-->
+        <!--<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>-->
+        <!--<mat-datepicker #picker2 startView="month"></mat-datepicker>-->
+      <!--</mat-form-field>-->
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>BackTesting</ng-template>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="sendData()">Done</button>
+      <button mat-button (click)="dialogRef.close()">Cancel</button>
+
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

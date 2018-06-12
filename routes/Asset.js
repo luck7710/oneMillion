@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET SINGLE ASSET BY ID */
-router.get('/:id', function(req, res, next) {
-  Asset.findById(req.params.id, function (err, post) {
+/* GET SINGLE ASSET BY PLATFORM */
+router.get('/:platform', function(req, res, next) {
+  Asset.find({platform: req.params.platform}, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

@@ -20,10 +20,10 @@ export class HttpService {
   }
 
   getAssets() {
-    return this.http.get('/assets/').map((res) => res.json());
+    return this.http.get('/asset/').map((res) => res.json());
   }
-  getAssetsByID(id) {
-    return this.http.get('/assets/' + id).map((res) => res.json());
+  getAssetsByPlatform(platform) {
+    return this.http.get('/asset/' + platform).map((res) => res.json());
   }
 
   updateAsset(id, data) {

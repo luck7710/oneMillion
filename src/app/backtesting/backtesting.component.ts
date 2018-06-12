@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {TableComponent} from '../table/table.component';
 import {HttpService} from '../service/http.service';
 import {RSI} from '../Indicator/RSI';
+import {DialogStrategyComponent} from '../dialog-strategy/dialog-strategy.component';
+import {MatDialog} from '@angular/material';
 
 
 @Component({
@@ -12,47 +14,64 @@ import {RSI} from '../Indicator/RSI';
 export class BacktestingComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
   RSI: RSI;
+  table: any = [];
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private dialog: MatDialog) {
   }
 
-  displayTable(table) {
-    this.tableComponent.tableDisplay(table);
-  }
 
   getTable() {
     this.httpService.getCharts().subscribe(
       data => {
-        this.displayTable(data);
+        this.table = data;
       }, (err) => {
         console.log(err);
       }
     );
   }
 
-  backtestingbasic(table) {
+  backtesting(indicator: string, table) {
+    if (indicator === 'MACD') {
+    } else if (indicator === 'RSI') {
+      this.RSI = new RSI(14);
+      for (let i = 0; i < table.length; i++) {
+        this.RSI.setAlgorythm(table[i][4]);
+        console.log(this.RSI.averageGain, this.RSI.averageLoss, this.RSI.periodCount, this.RSI.previousCandle);
+        if (i < 14) {
+          console.log('warm up');
+        } else {
+          console.log(this.RSI.getRSI());
+          if (this.RSI.getRSI() <= 30) {
+            alert('survente');
+          }
+          if (this.RSI.getRSI() >= 70) {
+            alert('surachat');
+          }
+        }
+      }
+    } else {
+      console.log('in construction');
+    }
+
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogStrategyComponent, {
+      width: '',
+      data: {table: this.table}
+    });
 
-  backtesting(table) {
-    console.log(table[0]);
-    this.RSI = new RSI(14);
-    for (let i = 0; i < 50; i++) {
-      // console.log(table[0].chart[i][4]);
-      this.RSI.setAlgorythm(table[0].chart[i][4]);
-      console.log(this.RSI.averageGain, this.RSI.averageLoss, this.RSI.periodCount, this.RSI.previousCandle);
-      if (i < 14) {
-        console.log('warm up');
-      } else {
-        console.log(this.RSI.getRSI());
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== null && result !== undefined) {
+        console.log(result);
+        this.backtesting(result.indicatorSelected, result.tableSelected);
       }
-    }
+    });
   }
 
   ngOnInit() {
-    this.getTable();
     console.log('Backtesting init');
-
+    this.getTable();
   }
 
 }

@@ -76,41 +76,43 @@ export class DialogImportComponent implements OnInit {
   }
 
   checkAsset() {
-    this.httpService.getAssetsByID(this.firstFormGroup.value.platformSelected).subscribe((res) => {
-        console.log(res);
-        if (res.platform !== null && res.platform !== undefined && res.platform.length !== 0) {
-          if (res.platform === this.firstFormGroup.value.platformSelected) {
-            if (res.assets !== null && res.assets !== undefined && res.assets.length !== 0) {
-              console.log(res.assets);
-              this.currencies = Object.keys(res.assets);
-              if (res.pairs !== null && res.pairs !== undefined && res.pairs.length !== 0) {
-                console.log(res.pairs);
-                this.currenciesAssociates = Object.keys(res.pair);
-              } else {
-                this.httpService.getKraken('AssetPairs').subscribe(result => {
-                  this.currenciesAssociates = Object.keys(result);
-                });
-              }
+    this.httpService.getAssetsByPlatform(this.firstFormGroup.value.platformSelected).subscribe((res) => {
+        console.log('success', res);
+        if (res.length !== 0) {
+          if (res[0].platform === this.firstFormGroup.value.platformSelected) {
+            if (res[0].assets !== null && res[0].assets !== undefined && res[0].assets.length !== 0) {
+              console.log('Good Assets', res[0].assets);
+              this.currencies = Object.keys(res[0].assets[0]);
             } else {
               this.httpService.getKraken('Assets').subscribe(result => {
+                console.log('Bad Assets', res[0].assets);
                 this.currenciesAssociates = Object.keys(result);
+                // TODO Update assets
               });
             }
-          } else {
-            this.httpService.getKraken('Assets').subscribe(result => {
-              this.currencies = Object.keys(result);
-            });
-            this.httpService.getKraken('AssetPairs').subscribe(result => {
-              this.currenciesAssociates = Object.keys(result);
-            });
+            if (res[0].pairs !== null && res[0].pairs !== undefined && res[0].pairs.length !== 0) {
+              console.log('Good Pairs', res[0].pairs);
+              this.currenciesAssociates = Object.keys(res[0].pairs[0]);
+            } else {
+              this.httpService.getKraken('AssetPairs').subscribe(result => {
+                console.log('Bad A1ssetPair', res[0].pairs);
+                this.currenciesAssociates = Object.keys(result);
+                // TODO Update pairs
+              });
+            }
           }
         } else {
-          this.httpService.getKraken('Assets').subscribe(result => {
-            this.currencies = Object.keys(result);
-          });
-          this.httpService.getKraken('AssetPairs').subscribe(result => {
-            this.currenciesAssociates = Object.keys(result);
-          });
+          if (this.firstFormGroup.value.platformSelected === 'Kraken') {
+            this.httpService.getKraken('Assets').subscribe(result => {
+              this.currencies = Object.keys(result);
+              this.httpService.getKraken('AssetPairs').subscribe(resu => {
+                this.currenciesAssociates = Object.keys(resu);
+                this.httpService.saveAsset(new Asset(this.firstFormGroup.value.platformSelected, resu, result )).subscribe( (r) => {
+                  console.log(r);
+                });
+              });
+            });
+          }
         }
       }, (error) => {
         this.httpService.getKraken('Assets').subscribe(result => {
@@ -124,7 +126,6 @@ export class DialogImportComponent implements OnInit {
         });
       }
     );
-
   }
 
   ngOnInit() {

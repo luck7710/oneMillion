@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   @Output() tableSelected = new EventEmitter();
   @Output() deleteChartSelected = new EventEmitter();
   displayedColumns = DEFAULT_COLUMNS;
-  tableIsAvalaible = false;
+  tableIsAvalaible = true;
   dataSource: MatTableDataSource<TableData>;
   selection = new SelectionModel<TableData>(true, []);
   chartToDelete = [];
@@ -35,14 +35,9 @@ export class TableComponent implements OnInit {
   }
 
   deleteSuccess() {
-    for (const data of this.dataSource.data) {
-      if (data === this.chartToDelete) {
-        this.chartToDelete = [];
-        const index = this.dataSource.data.indexOf(data);
-        this.tableDisplay(this.dataSource.data.splice(index, 1));
-        break;
-      }
-    }
+    const chartFilter = this.dataSource.data.filter(obj => obj !== this.chartToDelete);
+    this.tableDisplay(chartFilter);
+    this.chartToDelete = [];
   }
 
   applyFilter(filterValue: string) {

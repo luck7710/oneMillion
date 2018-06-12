@@ -7,7 +7,7 @@
       <ng-template matStepLabel>Select your exchange platform</ng-template>
 
       <mat-form-field>
-        <mat-select matInput placeholder="exchange platform" formControlName="platformSelected" required>
+        <mat-select matInput placeholder="exchange platform" (change)="checkAsset()" formControlName="platformSelected" required>
     <!--      <mat-option value="Binance">Binance</mat-option>
           <mat-option value="Bitfinex">Bitfinex</mat-option>
           <mat-option value="Bittrex">Bittrex</mat-option>
@@ -16,14 +16,14 @@
         </mat-select>
       </mat-form-field>
       <div>
-        <button (click)="checkAsset()" mat-button matStepperNext>Next</button>
+        <button  mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
 
-      <ng-template matStepLabel>Select your pair</ng-template>
+      <ng-template  matStepLabel>Select your pair</ng-template>
 
       <mat-form-field>
         <mat-select matInput placeholder="Base Asset" formControlName="currencyNumerator" required>

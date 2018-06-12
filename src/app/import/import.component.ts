@@ -7,6 +7,9 @@ import {Candle} from '../Candle';
 import {Table} from '../Table';
 import {HttpService} from '../service/http.service';
 
+const NUMBER_REQUEST = 100;
+const TIMEOUT = 1000;
+
 @Component({
   selector: 'app-import',
   templateUrl: './import.component.html',
@@ -91,21 +94,32 @@ export class ImportComponent implements OnInit {
                 this.max = trade;
               }
             }
-            if (result.last <= endDate && this.fixMaxRequest(1)) {
+            if (result.last <= endDate && result[this.pairSelected].length >= 1000 && this.fixMaxRequest(NUMBER_REQUEST)) {
               console.log(result.last <= endDate);
               console.log(this.startDate, startDate, this.endDate);
               console.log(startDate - this.startDate, this.endDate - this.startDate);
               this.stateLoading = (startDate - this.startDate) / (this.endDate - this.startDate);
               this.displayProgressBar.emit(this.stateLoading * 100);
-              setTimeout(() => this.parseTradesToCandles(endDate, result.last, platformSelected, pairSelected), 5000);
+              setTimeout(() => this.parseTradesToCandles(endDate, result.last, platformSelected, pairSelected), TIMEOUT);
               // this.graphicComponent.traceChart(this.chart);
             } else {
               this.stateLoading = 100;
               this.displayProgressBar.emit(this.stateLoading);
-              this.saveChart(this.platformSelected, this.pairSelected, this.startDate, this.endDate, this.chart, this.fixMaxRequest(10));
+              this.saveChart(
+                this.platformSelected,
+                this.pairSelected,
+                this.startDate,
+                this.endDate,
+                this.chart,
+                this.fixMaxRequest(NUMBER_REQUEST))
+              ;
               return;
             }
           }
+        }, (error) => {
+        console.log('error import ');
+        console.log(error);
+        setTimeout(() => this.parseTradesToCandles(endDate, startDate, platformSelected, pairSelected), TIMEOUT * 10);
         }
       );
     }
@@ -149,6 +163,7 @@ export class ImportComponent implements OnInit {
           // const resId = JSON.parse(res['_body'])._id;
           this.httpService.getCharts().subscribe(
             data => {
+              console.log(data);
               this.displayTable.emit(data);
               this.initChart();
             }, (err) => {
