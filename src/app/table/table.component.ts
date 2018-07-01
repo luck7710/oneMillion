@@ -5,6 +5,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 
 
 const DEFAULT_COLUMNS = ['actions', 'platform', 'pair', 'startDate', 'endDate', 'numberCandles', 'isAllImported', 'importDate'];
+const BACKTESTING_COLUMNS = ['dateLong', 'long', 'dateShort', 'short', '%Trade', '%Gain'];
 
 @Component({
   selector: 'app-table',
@@ -22,12 +23,14 @@ export class TableComponent implements OnInit {
   dataSource: MatTableDataSource<TableData>;
   selection = new SelectionModel<TableData>(true, []);
   chartToDelete = [];
+  saveTableDAta: any;
 
   constructor() {
   }
 
-  tableDisplay(tableData) {
+  tableDisplay(tableData: any) {
     console.log(tableData);
+    this.saveTableDAta = tableData;
     this.dataSource = new MatTableDataSource(tableData);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -46,6 +49,15 @@ export class TableComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  getColor(average: number) {
+    if (average < 0) {
+      return 'red';
+    } else if (average > 0) {
+      return 'green';
+    } else {
+      return;
+    }
+  }
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -77,6 +89,16 @@ export class TableComponent implements OnInit {
     console.log(row._id);
     this.chartToDelete = row;
     this.deleteChartSelected.emit(row._id);
+  }
+
+  switchTable(typeTable: string, table?: any) {
+    if (typeTable === 'backtestingTable') {
+      this.displayedColumns = BACKTESTING_COLUMNS;
+      this.tableDisplay(table);
+    } else {
+      this.displayedColumns = DEFAULT_COLUMNS;
+      this.tableDisplay(this.saveTableDAta);
+    }
   }
 
   ngOnInit() {

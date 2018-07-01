@@ -18,7 +18,7 @@ export class RSI extends Indicator {
 
   public setAlgorythm(close: number) {
     if (this.periodCount !== 0 && this.periodCount < this.period + 1) {
-      console.log('input < 15');
+      // console.log('input < 15');
       if (close > this.previousCandle) {
         // if (candle.getClose() > this.previousCandle.getClose()) {
         this.averageGain = this.averageGain + (close - this.previousCandle);
@@ -31,7 +31,7 @@ export class RSI extends Indicator {
       this.RS = (this.averageGain / (this.period)) / (this.averageLoss / (this.period));
       this.rsi = 100 - (100 / (1 + this.RS));
     } else if (this.periodCount !== 0 && this.periodCount >= this.period + 1) {
-      console.log('input > 15');
+      // console.log('input > 15');
       if (close > this.previousCandle) {
         // if (candle.getClose() > this.previousCandle.getClose()) {
         this.averageGain = ((this.averageGain * (this.period - 1)) + (close - this.previousCandle)) / (this.period);

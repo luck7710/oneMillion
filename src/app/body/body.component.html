@@ -1,0 +1,6 @@
+<app-import *ngIf="bodyStateView === 'IMPORT'" (displayProgressBar)="displayProgressBar.emit($event)" (displayTable)="updateTable($event)"></app-import>
+<app-backtesting *ngIf="bodyStateView === 'BACKTESTING'"></app-backtesting>
+<app-table *ngIf="bodyStateView === 'BACKTESTING'" (tableSelected)="displayGraphic($event)"
+           (deleteChartSelected)="deleteChart($event)"></app-table>
+<button *ngIf="bodyStateView === 'BACKTESTING'" mat-raised-button color="primary" (click)="destroyGraphic()">DESTROY</button>
+<app-graphic *ngIf="bodyStateView === 'BACKTESTING'"></app-graphic>

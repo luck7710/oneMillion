@@ -44,6 +44,7 @@ import {GraphicAdvancedComponent} from './graphic-advanced/graphic-advanced.comp
 import {DynamicComponent} from './dynamic/dynamic.component';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { DialogStrategyComponent } from './dialog-strategy/dialog-strategy.component';
+import { BodyComponent } from './body/body.component';
 
 
 const appRoutes: Routes = [
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
     GraphicAdvancedComponent,
     DynamicComponent,
     DialogStrategyComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,

@@ -78,6 +78,43 @@
         <mat-cell *matCellDef="let row"> {{row.updated_date}}</mat-cell>
       </ng-container>
 
+      <!-- Color Column -->
+      <ng-container matColumnDef="dateLong">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date Long</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.dateLong}}</mat-cell>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="long">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Long </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.long}}</mat-cell>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="dateShort">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date Short</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.dateShort}}</mat-cell>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="short">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Short</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.short}}</mat-cell>
+      </ng-container>
+
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="%Trade">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> %Gain Trade</mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="getColor(row.trade)"> {{row.trade}}%</mat-cell>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="%Gain">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> %Gain Total</mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="getColor(row.gain)"> {{row.gain}}%</mat-cell>
+      </ng-container>
+
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"

@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {init} from 'protractor/built/launcher';
-import {setInterval} from 'timers';
+import {Flag} from '../Flag';
 
 require('../../assets/stocks/indicators/indicators')(Highcharts);
 require('../../assets/stocks/indicators/ema')(Highcharts);
@@ -36,6 +36,10 @@ export class GraphicComponent implements OnInit {
   isDisplay = false;
   chartOptions: any;
   table: any;
+  longIncr = 0;
+  shortIncr = 0;
+  longFlag: Flag = new Flag();
+  shortFlag: Flag = new Flag();
 
 
   constructor() {
@@ -118,6 +122,7 @@ export class GraphicComponent implements OnInit {
 
   public traceChartTest(table) {
     console.log(table);
+
     this.isDisplay = true;
     const adv_options = {
       title: {
@@ -133,7 +138,7 @@ export class GraphicComponent implements OnInit {
         params: {
           period: 14
         }
-      },{
+      }, {
         id: 'AAPL',
         type: 'rsi',
         params: {
@@ -179,11 +184,33 @@ export class GraphicComponent implements OnInit {
         tooltip: {
           valueDecimals: 2
         }
-      }]
+      }, this.longFlag, this.shortFlag]
     };
 
     setTimeout(() => Highcharts.stockChart('container', adv_options)
       , 0);
+    console.log(adv_options);
+    console.log(this.longFlag);
+    console.log(this.shortFlag);
+  }
+
+  DisplayFlag(isLong: boolean, table, indicator: any) {
+    if (isLong) {
+      this.longIncr++;
+      if (this.longIncr <= 1) {
+        this.longFlag = new Flag('LONG', table, indicator, this.longIncr);
+      } else {
+        this.longFlag.setData('LONG', table, indicator, this.longIncr);
+      }
+    } else {
+      this.shortIncr++;
+      if (this.shortIncr <= 1) {
+        this.shortFlag = new Flag('SHORT', table, indicator, this.shortIncr);
+      } else {
+        this.shortFlag.setData('SHORT', table, indicator, this.shortIncr);
+      }
+    }
+
   }
 
   destroyChart() {

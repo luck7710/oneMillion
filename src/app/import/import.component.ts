@@ -6,6 +6,7 @@ import {Http} from '@angular/http';
 import {Candle} from '../Candle';
 import {Table} from '../Table';
 import {HttpService} from '../service/http.service';
+import {DynamicService} from '../service/dynamic.service';
 
 const NUMBER_REQUEST = 100;
 const TIMEOUT = 1000;
@@ -37,7 +38,7 @@ export class ImportComponent implements OnInit {
   numberTrades = 0;
   stateLoading = 0;
 
-  constructor(private dialog: MatDialog, private httpService: HttpService, private http: Http) {
+  constructor(private dialog: MatDialog, private httpService: HttpService, private http: Http, private dynamicService: DynamicService) {
   }
 
   openDialog(): void {
@@ -55,6 +56,7 @@ export class ImportComponent implements OnInit {
       }
     });
   }
+
 
   parseTradesToCandles(endDate: number, startDate: number, platformSelected: String, pairSelected: string): void {
     if (platformSelected === 'Kraken') {

@@ -1,4 +1,6 @@
-<mat-tab-group class="tab-group">
+<p-progressBar *ngIf="isVisible" [value]="stateLoading"></p-progressBar>
+
+<mat-tab-group (selectedIndexChange)="eventMenu($event)" class="tab-group">
   <mat-tab label="Tab 1">
     <ng-template mat-tab-label>
       <i class="fa fa-heartbeat" aria-hidden="true"></i>
